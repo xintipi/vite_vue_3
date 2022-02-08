@@ -1,0 +1,33 @@
+.ant-btn:hover {
+  color: $color-primary-6;
+  border-color: $color-primary-6;
+}
+
+.ant-btn-primary:hover {
+  color: $color-grey-100;
+  background-color: $color-primary-6;
+  border-color: $color-primary-6;
+}
+
+.ant-btn-danger:hover {
+  color: $color-grey-100;
+  background-color: $color-additional-red-4;
+  border-color: $color-additional-red-5;
+}
+
+.ant-btn-link:hover {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.btn-icon {
+  line-height: 1;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  height: 16px;
+
+  & + span {
+    margin-left: 8px;
+  }
+}

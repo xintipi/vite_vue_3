@@ -1,0 +1,52 @@
+.ant-form-vertical .ant-form-item {
+  padding-bottom: 0;
+}
+
+.card-common {
+  padding: 24px 32px;
+  overflow-y: scroll;
+  height: 100%;
+
+  .form-group {
+    margin-bottom: 16px;
+
+    .form-content {
+      .form-label.required:after {
+        content: "*";
+        margin-left: .25rem;
+        color: #cd201f;
+      }
+
+      .form-input {
+        margin-top: 5px;
+        
+        .form-caption {
+          color: $color-grey-75;
+          font-size: 12px;
+          line-height: 18px;
+        }
+
+        .ant-input.has-error {
+          border-color: #ff4d4f;
+          box-shadow: none;
+        }
+
+        .ant-checkbox-group {
+          label:first-child {
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .card-footer {
+    .ant-btn {
+      min-width: 105px;
+    }
+
+    .btn-cancel {
+      margin-right: 16px;
+    }
+  }
+}
