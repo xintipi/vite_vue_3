@@ -17,7 +17,6 @@
   "dependencies": {
     "ant-design-vue": "^2.2.8",
     "axios": "^0.25.0",
-    "element-plus": "^2.0.1",
     "js-cookie": "^3.0.1",
     "lodash-es": "^4.17.21",
     "moment": "^2.29.1",
@@ -25,8 +24,7 @@
     "vee-validate": "^4.5.5",
     "vue": "^3.2.30",
     "vue-i18n": "^9.1.6",
-    "vue-router": "^4.0.12",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@ant-design/icons-vue": "^6.0.1",
