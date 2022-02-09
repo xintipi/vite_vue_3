@@ -8,8 +8,6 @@ const messages: any = {
   ja: { ...japan }
 }
 
-console.log(messages)
-
 const i18n = createI18n({
   locale: 'ja', // set locale
   fallbackLocale: 'en', // set fallback locale

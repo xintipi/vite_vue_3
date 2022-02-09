@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 import Cookie from 'js-cookie'
 
 const instance = axios.create()
@@ -7,16 +7,18 @@ instance.defaults.headers.common['Accept'] = 'application/json'
 instance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 // Interceptors
-instance.interceptors.request.use((config: any) => {
-  if (Cookie.get('access_token')) {
-    config.headers['Authorization'] = `Bearer ${Cookie.get('access_token')}`
+instance.interceptors.request.use(
+  (config: AxiosRequestConfig | any): AxiosRequestConfig => {
+    if (Cookie.get('access_token')) {
+      config.headers['Authorization'] = `Bearer ${Cookie.get('access_token')}`
+    }
+    return config
   }
-  return config
-})
+)
 
 instance.interceptors.response.use(
-  (response) => response,
-  async (error) => {
+  (response: AxiosResponse): AxiosResponse => response,
+  async (error: AxiosError): Promise<AxiosError> => {
     // Do something with response error
     // let { status } = error.response
     // let { data } = error.response

@@ -13,7 +13,6 @@
 </template>
 
 <script lang="ts">
-import { SelectProps } from 'ant-design-vue'
 import { ref, defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -29,13 +28,13 @@ export default defineComponent({
 
   setup() {
     const { locale } = useI18n()
-    const count = ref<boolean>(0)
-    const options = ref<SelectProps['options']>([
+    const count = ref<number>(0)
+    const options = ref([
       { locale: 'ja', value: '日本語' },
       { locale: 'en', value: 'English' }
     ])
 
-    const handleChange: SelectProps['onChange'] = (value) => {
+    const handleChange = (value: any) => {
       locale.value = value
     }
 

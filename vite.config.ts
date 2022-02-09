@@ -7,12 +7,18 @@ export default defineConfig({
   plugins: [vue()],
   build: {
     target: 'modules',
-    minify: true
-    // sourcemap: true,
+    minify: true,
+    sourcemap: false
+  },
+  preview: {
+    port: 5000,
+    host: true,
+    strictPort: true
   },
   server: {
-    port: 8080,
-    host: '0.0.0.0'
+    port: 8000,
+    host: true,
+    strictPort: true
   },
   resolve: {
     alias: {
