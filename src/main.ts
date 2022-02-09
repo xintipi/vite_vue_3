@@ -12,8 +12,6 @@ import pinia from '@/plugins/pinia'
 
 import configureValidation from '@/mixins/validation.mixin'
 
-document.title = import.meta.env.VITE_APP_TITLE
-
 const app = createApp(App)
 
 // register ant-design as global components

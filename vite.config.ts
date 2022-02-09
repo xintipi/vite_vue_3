@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   build: {
-    target: 'modules',
+    target: "modules",
     minify: true,
     sourcemap: false
   },
@@ -22,19 +22,19 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, './src/components')
+      "@": path.resolve(__dirname, "./src"),
+      "@components": path.resolve(__dirname, "./src/components")
     }
   },
   css: {
     postcss: {
       plugins: [
         {
-          postcssPlugin: 'internal:charset-removal',
+          postcssPlugin: "internal:charset-removal",
           AtRule: {
             charset: (atRule) => {
-              if (atRule.name === 'charset') {
-                atRule.remove()
+              if (atRule.name === "charset") {
+                atRule.remove();
               }
             }
           }
@@ -43,6 +43,6 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: ['@ant-design/icons-vue']
+    include: ["@ant-design/icons-vue"]
   }
-})
+});
