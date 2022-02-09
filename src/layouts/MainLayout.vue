@@ -1,20 +1,12 @@
 <template>
   <a-layout class="main">
-
     <a-layout class="main__content">
-
       <a-layout-content class="u-pt-56">
-
         <a-config-provider>
-
           <router-view />
-
         </a-config-provider>
-
       </a-layout-content>
-
     </a-layout>
-
   </a-layout>
 </template>
 

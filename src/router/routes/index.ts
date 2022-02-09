@@ -8,7 +8,8 @@ import DashboardPage from '@/pages/dashboard/index.vue'
 const routes: RouteRecordRaw[] = [
   {
     path: '/login',
-    component: (): Promise<RouteComponent> => import('../../layouts/AuthLayout.vue'),
+    component: (): Promise<RouteComponent> =>
+      import('../../layouts/AuthLayout.vue'),
     children: [
       {
         path: '',
@@ -21,7 +22,8 @@ const routes: RouteRecordRaw[] = [
 
   {
     path: '/',
-    component: (): Promise<RouteComponent> => import('../../layouts/MainLayout.vue'),
+    component: (): Promise<RouteComponent> =>
+      import('../../layouts/MainLayout.vue'),
     children: [
       {
         path: '',
