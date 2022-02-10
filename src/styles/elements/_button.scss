@@ -3,10 +3,21 @@
   border-color: $color-primary-6;
 }
 
-.ant-btn-primary:hover {
-  color: $color-grey-100;
-  background-color: $color-primary-6;
-  border-color: $color-primary-6;
+.ant-btn-default {
+  &:hover {
+    background-color: $color-primary-6;
+    color: $color-grey-100;
+    border-color: $color-primary-6;
+  }
+}
+
+.ant-btn-primary {
+  background-color: $color-primary-9;
+  &:hover, &:focus {
+    color: $color-grey-100;
+    background-color: $color-primary-8;
+    border-color: $color-primary-8;
+  }
 }
 
 .ant-btn-danger:hover {

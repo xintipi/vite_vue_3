@@ -22,10 +22,6 @@ directives(app)
 validation(app)
 // global mixin
 configureValidation(app)
-
-// global css
-import '@/styles/main.scss'
-
 // register plugins
 app.use(i18n).use(router).use(pinia)
 

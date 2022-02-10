@@ -54,11 +54,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-p {
-  font-size: 20px;
 
-  a {
-    color: #42b983;
-  }
-}
 </style>
