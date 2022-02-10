@@ -1,4 +1,6 @@
 <template>
+  <img alt="Vue logo" :src="logo" />
+
   <h1>{{ msg }}</h1>
 
   <a-button type="primary" class="mb-3" @click="count++"
@@ -15,6 +17,8 @@
 <script lang="ts">
 import { ref, defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
+
+import logo from '@/assets/logo.png'
 
 export default defineComponent({
   name: 'HelloWorld',
@@ -42,6 +46,7 @@ export default defineComponent({
       locale,
       count,
       options,
+      logo,
       handleChange
     }
   }

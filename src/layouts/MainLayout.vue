@@ -1,6 +1,11 @@
 <template>
   <a-layout class="main">
+    <app-sidebar @on-collapse-side-bar="onCollapseSideBar($event)" />
     <a-layout class="main__content">
+      <app-header :class="isCollapse ? 'is-collapse' : ''">
+        <slot name="header" />
+      </app-header>
+
       <a-layout-content class="u-pt-56">
         <a-config-provider>
           <router-view />
@@ -11,14 +16,62 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+import AppSidebar from '@/layouts/components/AppSidebar.vue'
+import AppHeader from '@/layouts/components/AppHeader.vue'
+
+import localeEn from 'ant-design-vue/es/locale/en_US'
+import localeJa from 'ant-design-vue/es/locale/ja_JP'
+
+interface Record {
+  en: any
+  ja: any
+}
 
 export default defineComponent({
-  name: 'MainLayout'
+  name: 'MainLayout',
+
+  components: {
+    AppSidebar,
+    AppHeader
+  },
+
+  setup() {
+    const { locale } = useI18n()
+
+    const locales = ref<Record>({ en: localeEn, ja: localeJa })
+    const isCollapse = ref<boolean>()
+
+    const onCollapseSideBar = (isCollapseEmit: boolean) => {
+      isCollapse.value = isCollapseEmit
+    }
+
+    onMounted(() => {
+      locales.value = {
+        en: {
+          ...locales.value.en,
+          Empty: { description: 'The corresponding item was not found.' }
+        },
+        ja: {
+          ...locales.value.ja,
+          Empty: { description: '該当する企業が見つかりませんでした。' }
+        }
+      }
+    })
+
+    return {
+      locale,
+      locales,
+      isCollapse,
+      onCollapseSideBar
+    }
+  }
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header.is-collapse {
   left: 66px;
   transition: transform 0.3s ease-in-out, left 0.3s ease-in-out;

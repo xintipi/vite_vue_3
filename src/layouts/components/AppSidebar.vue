@@ -1,13 +1,74 @@
 <template>
-  <a-layout-sider width="232" collapsed-width="66" class="aside-wrapper">
+  <a-layout-sider
+    width="232"
+    collapsed-width="66"
+    :collapsed="isCollapse"
+    class="aside-wrapper"
+  >
+    <aside :class="['aside', isCollapse && 'is-collapse']">
+      <div class="aside__top">
+        <div class="aside__top--toggle">
+          <div @click="toggleSideBar">
+            <sidebar-close />
+          </div>
+        </div>
+      </div>
+
+      <ul class="aside__menu">
+        <li class="aside__list">
+          <div
+            class="aside__collapse--header aside__link is-active router-link-exact-active is-dashboard"
+          >
+            <sidebar-dashboard class="aside__link--nav-icon" />
+            <span class="aside__link--text">ダッシュボード</span>
+          </div>
+        </li>
+
+        <li class="aside__list">
+          <div class="aside__collapse--header aside__link">
+            <sidebar-project class="aside__link--nav-icon" />
+            <span class="aside__link--text">プロジェクト</span>
+          </div>
+        </li>
+      </ul>
+    </aside>
   </a-layout-sider>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+
+import SidebarClose from '@/components/sidebar/SidebarClose.vue'
+import SidebarDashboard from '@/components/sidebar/SidebarDashboard.vue'
+import SidebarProject from '@/components/sidebar/SidebarProject.vue'
+import SidebarSetting from '@/components/sidebar/SidebarSetting.vue'
+import SidebarArrowDown from '@/components/sidebar/SidebarArrowDown.vue'
 
 export default defineComponent({
-  name: 'AppSidebar'
+  name: 'AppSidebar',
+
+  components: {
+    SidebarClose,
+    SidebarDashboard,
+    SidebarProject,
+    SidebarSetting,
+    SidebarArrowDown
+  },
+
+  setup(_, { emit }) {
+    // collapse sidebar
+    const isCollapse = ref(false)
+
+    const toggleSideBar = () => {
+      isCollapse.value = !isCollapse.value
+      emit('on-collapse-side-bar', isCollapse.value)
+    }
+
+    return {
+      isCollapse,
+      toggleSideBar
+    }
+  }
 })
 </script>
 
