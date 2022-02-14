@@ -3,9 +3,7 @@
 
   <h1>{{ msg }}</h1>
 
-  <a-button type="primary" class="mb-3" @click="count++"
-    >{{ $t('common.count') }}: {{ count }}</a-button
-  >
+  <a-button type="primary" class="mb-3" @click="count++">{{ $t('common.count') }}: {{ count }}</a-button>
 
   <a-select v-model:value="locale" style="width: 115px" @change="handleChange">
     <a-select-option v-for="(item, i) in options" :key="i" :value="item.locale">

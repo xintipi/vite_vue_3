@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { useProductStore, Product } from './products'
 
 export interface Purchase {
-  productId: string
+  productId: string,
   quantity: number
 }
 

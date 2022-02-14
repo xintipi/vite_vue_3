@@ -1,10 +1,5 @@
 <template>
-  <a-layout-sider
-    width="232"
-    collapsed-width="66"
-    :collapsed="isCollapse"
-    class="aside-wrapper"
-  >
+  <a-layout-sider width="232" collapsed-width="66" :collapsed="isCollapse" class="aside-wrapper">
     <aside :class="['aside', isCollapse && 'is-collapse']">
       <div class="aside__top">
         <div class="aside__top--toggle">
@@ -16,9 +11,7 @@
 
       <ul class="aside__menu">
         <li class="aside__list">
-          <div
-            class="aside__collapse--header aside__link is-active router-link-exact-active is-dashboard"
-          >
+          <div class="aside__collapse--header aside__link is-active router-link-exact-active is-dashboard">
             <sidebar-dashboard class="aside__link--nav-icon" />
             <span class="aside__link--text">ダッシュボード</span>
           </div>
@@ -163,8 +156,7 @@ $width-sub-nav-collapse: 150px;
   }
 
   .is-active.aside__link:not(.is-dashboard, .aside__collapse--header),
-  .is-active:not(.is-dashboard, .aside__collapse--header)
-    .aside__link--nav-icon,
+  .is-active:not(.is-dashboard, .aside__collapse--header) .aside__link--nav-icon,
   .is-active:not(.is-dashboard, .aside__collapse--header) .aside__link--text,
   .router-link-exact-active,
   .router-link-exact-active > .aside__link--text {

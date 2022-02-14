@@ -23,12 +23,7 @@
                     @change="handleChange"
                   />
                   <!-- Error message -->
-                  <ErrorMessage
-                    v-slot="{ message }"
-                    as="span"
-                    :name="t('login.email_label')"
-                    class="errors"
-                  >
+                  <ErrorMessage v-slot="{ message }" as="span" :name="t('login.email_label')" class="errors">
                     {{ message }}
                   </ErrorMessage>
                 </div>
@@ -52,12 +47,7 @@
                     @change="handleChange"
                   />
                   <!-- Error message -->
-                  <ErrorMessage
-                    v-slot="{ message }"
-                    as="span"
-                    :name="t('login.password_label')"
-                    class="errors"
-                  >
+                  <ErrorMessage v-slot="{ message }" as="span" :name="t('login.password_label')" class="errors">
                     {{ message }}
                   </ErrorMessage>
                 </div>
@@ -100,7 +90,7 @@ export default defineComponent({
 
   setup() {
     const { t } = useI18n()
-    const { handleSubmit, setFieldError } = useForm()
+    const { handleSubmit } = useForm()
 
     const form = ref<Params>({ username: '', password: '' })
     const loading = ref<boolean>(false)
@@ -136,11 +126,14 @@ export default defineComponent({
 
   .card {
     border-radius: 10px;
+
     &-body {
       padding: 40px;
+
       .form-input {
         max-width: 350px;
         margin: 0 auto 20px;
+
         input {
           border-radius: 8px;
           border: 1px solid #dddddd;
@@ -150,6 +143,7 @@ export default defineComponent({
           margin: 0 auto;
         }
       }
+
       .form-footer {
         margin-top: 2rem;
       }
@@ -158,6 +152,7 @@ export default defineComponent({
 
   &__logo {
     margin-bottom: 50px;
+
     img {
       min-width: 200px;
     }

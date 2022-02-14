@@ -1,10 +1,5 @@
 <template>
-  <a-modal
-    v-model:visible="open"
-    :title="$t('modal.title')"
-    class="modal-delete"
-    @cancel="handleCancel"
-  >
+  <a-modal v-model:visible="open" :title="$t('modal.title')" class="modal-delete" @cancel="handleCancel">
     <template #footer>
       <template v-if="locale === 'en'">
         <p>{{ $t('modal.message_en') }} {{ nameCompany }}?</p>
@@ -12,9 +7,7 @@
       <template v-if="locale === 'ja'">
         <p>{{ nameCompany + $t('modal.message_ja') }}</p>
       </template>
-      <a-button key="back" class="btn-close" @click="handleCancel">{{
-        $t('modal.cancel')
-      }}</a-button>
+      <a-button key="back" class="btn-close" @click="handleCancel">{{ $t('modal.cancel') }}</a-button>
       <a-button type="danger" class="btn-delete" @click="handleDelete">
         {{ $t('modal.delete') }}
       </a-button>
