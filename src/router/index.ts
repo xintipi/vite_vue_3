@@ -1,9 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-  RouteLocationNormalized,
-  NavigationGuardNext
-} from 'vue-router'
+import { createRouter, createWebHistory, RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 import routes from './routes'
 
 const router = createRouter({
@@ -11,16 +6,10 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach(
-  (
-    to: RouteLocationNormalized,
-    from: RouteLocationNormalized,
-    next: NavigationGuardNext
-  ) => {
-    // @ts-ignore
-    document.title = to.meta.title
-    next()
-  }
-)
+router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
+  // @ts-ignore
+  document.title = to.meta.title
+  next()
+})
 
 export default router
