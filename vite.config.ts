@@ -13,7 +13,7 @@ const __APP_INFO__ = {
 export default ({ command }: ConfigEnv): UserConfig => {
   // command === 'build' ? '/vite_vue_3/' : ''
   return {
-    base: '',
+    base: command === 'build' ? '/vite_vue_3/' : '',
     resolve: {
       alias: [
         {
