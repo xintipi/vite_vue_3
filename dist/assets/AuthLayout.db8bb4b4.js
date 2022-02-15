@@ -1,1 +1,0 @@
-import{_ as e}from"./index.f20745c3.js";import{d as t,c as r,r as n,o as a}from"./vendor.19f0afec.js";const s=t({name:"AuthLayout"});function c(p,_,u,m,f,i){const o=n("router-view");return a(),r(o)}var v=e(s,[["render",c]]);export{v as default};
