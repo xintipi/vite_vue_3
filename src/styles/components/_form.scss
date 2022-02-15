@@ -12,14 +12,14 @@
 
     .form-content {
       .form-label.required:after {
-        content: "*";
-        margin-left: .25rem;
+        content: '*';
+        margin-left: 0.25rem;
         color: #cd201f;
       }
 
       .form-input {
         margin-top: 5px;
-        
+
         .form-caption {
           color: $color-grey-75;
           font-size: 12px;

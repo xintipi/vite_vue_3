@@ -6,5 +6,5 @@ export default {
   password_label: 'Password',
   password_placeholder: 'Enter password',
   password_require: 'Please input password',
-  login_submit: 'Login'
-}
+  login_submit: 'Login',
+};

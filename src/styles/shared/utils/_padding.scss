@@ -14,7 +14,8 @@ $padding-utils: (
   '60': 60px,
   '64': 64px,
   '72': 72px,
-  '80': 80px);
+  '80': 80px,
+);
 
 @each $key, $val in $padding-utils {
   .u-pl-#{$key} {

@@ -38,5 +38,5 @@ export const PERMISSIONS = {
   VIEW_ADMIN: 'view-admin',
   CREATE_ADMIN: 'create-admin',
   UPDATE_ADMIN: 'update-admin',
-  DELETE_ADMIN: 'delete-admin'
-}
+  DELETE_ADMIN: 'delete-admin',
+};

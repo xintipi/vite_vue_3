@@ -32,23 +32,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   .btn-close {
     &:hover {
-      background: #31AAF1;
+      background: #31aaf1;
       color: white;
     }
   }
-  
+
   .btn-delete {
     &:hover {
-      background: #FF7875;
+      background: #ff7875;
       color: white;
     }
   }
 
   .ant-modal-content {
     width: 380px;
+
     .ant-modal-footer {
       padding: 16px;
 
@@ -70,14 +71,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   .btn-close {
     &:hover {
-      background: #31AAF1;
+      background: #31aaf1;
       color: white;
     }
   }
-  
+
   .ant-modal-content {
     width: 665px;
   }
@@ -89,13 +90,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   .ant-modal-content {
     width: 380px;
-    
+
     .ant-modal-footer {
       padding: 16px;
-      
+
       p {
         margin-bottom: 21px;
       }
@@ -109,17 +110,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   .ant-modal-content {
     .ant-modal-footer {
       padding: 16px 36px;
-      
+
       p {
         margin-bottom: 0;
         font-size: 14px;
         line-height: 22px;
       }
-      
+
       .group-text {
         margin-bottom: 16px;
       }
@@ -134,7 +135,7 @@
 .modal-activity-log {
   .btn-close {
     &:hover {
-      background: #31AAF1;
+      background: #31aaf1;
       color: white;
     }
   }

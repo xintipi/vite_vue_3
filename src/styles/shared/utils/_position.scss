@@ -3,7 +3,7 @@ $positions: (
   'relative': relative,
   'static': static,
   'fixed': fixed,
-  'sticky': sticky
+  'sticky': sticky,
 );
 
 @each $key, $val in $positions {

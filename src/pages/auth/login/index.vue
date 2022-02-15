@@ -23,7 +23,12 @@
                     @change="handleChange"
                   />
                   <!-- Error message -->
-                  <ErrorMessage v-slot="{ message }" as="span" :name="t('login.email_label')" class="errors">
+                  <ErrorMessage
+                    v-slot="{ message }"
+                    as="span"
+                    :name="t('login.email_label')"
+                    class="errors"
+                  >
                     {{ message }}
                   </ErrorMessage>
                 </div>
@@ -47,7 +52,12 @@
                     @change="handleChange"
                   />
                   <!-- Error message -->
-                  <ErrorMessage v-slot="{ message }" as="span" :name="t('login.password_label')" class="errors">
+                  <ErrorMessage
+                    v-slot="{ message }"
+                    as="span"
+                    :name="t('login.password_label')"
+                    class="errors"
+                  >
                     {{ message }}
                   </ErrorMessage>
                 </div>
@@ -74,88 +84,88 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { useForm } from 'vee-validate'
+  import { defineComponent, ref } from 'vue';
+  import { useI18n } from 'vue-i18n';
+  import { useForm } from 'vee-validate';
 
-import logo from '@/assets/images/newphoria_logo_blue.svg'
+  import logo from '@/assets/images/newphoria_logo_blue.svg';
 
-interface Params {
-  username: string
-  password: string
-}
-
-export default defineComponent({
-  name: 'Index',
-
-  setup() {
-    const { t } = useI18n()
-    const { handleSubmit } = useForm()
-
-    const form = ref<Params>({ username: '', password: '' })
-    const loading = ref<boolean>(false)
-
-    const onSubmit = handleSubmit(() => {
-      let data = { ...form.value }
-
-      loading.value = true
-      console.log(data)
-    })
-
-    return {
-      form,
-      loading,
-      t,
-      logo,
-      onSubmit
-    }
+  interface Params {
+    username: string;
+    password: string;
   }
-})
+
+  export default defineComponent({
+    name: 'Index',
+
+    setup() {
+      const { t } = useI18n();
+      const { handleSubmit } = useForm();
+
+      const form = ref<Params>({ username: '', password: '' });
+      const loading = ref<boolean>(false);
+
+      const onSubmit = handleSubmit(() => {
+        let data = { ...form.value };
+
+        loading.value = true;
+        console.log(data);
+      });
+
+      return {
+        form,
+        loading,
+        t,
+        logo,
+        onSubmit,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
-.login {
-  display: flex;
-  align-items: center;
-  background-color: #354052;
-  min-height: 100vh;
+  .login {
+    display: flex;
+    align-items: center;
+    background-color: #354052;
+    min-height: 100vh;
 
-  .container-tight {
-    max-width: 524px;
-  }
+    .container-tight {
+      max-width: 524px;
+    }
 
-  .card {
-    border-radius: 10px;
+    .card {
+      border-radius: 10px;
 
-    &-body {
-      padding: 40px;
+      &-body {
+        padding: 40px;
 
-      .form-input {
-        max-width: 350px;
-        margin: 0 auto 20px;
+        .form-input {
+          max-width: 350px;
+          margin: 0 auto 20px;
 
-        input {
-          border-radius: 8px;
-          border: 1px solid #dddddd;
-          font-size: 13px;
-          padding: 13px 15px;
-          height: 39px;
-          margin: 0 auto;
+          input {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+            padding: 13px 15px;
+            height: 39px;
+            margin: 0 auto;
+          }
+        }
+
+        .form-footer {
+          margin-top: 2rem;
         }
       }
+    }
 
-      .form-footer {
-        margin-top: 2rem;
+    &__logo {
+      margin-bottom: 50px;
+
+      img {
+        min-width: 200px;
       }
     }
   }
-
-  &__logo {
-    margin-bottom: 50px;
-
-    img {
-      min-width: 200px;
-    }
-  }
-}
 </style>

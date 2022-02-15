@@ -3,7 +3,7 @@ $text-weight-utils: (
   'weight-500': 500,
   'weight-600': 600,
   'weight-700': 700,
-  'weight-800': 800
+  'weight-800': 800,
 );
 
 @each $key, $val in $text-weight-utils {
@@ -12,14 +12,13 @@ $text-weight-utils: (
   }
 }
 
-
 $text-color-utils: (
   'grey-15': $color-grey-15,
   'grey-55': $color-grey-55,
   'grey-75': $color-grey-75,
   'additional-blue-6': $color-additional-blue-6,
   'additional-red-5': $color-additional-red-5,
-  'additional-red-6': $color-additional-red-6
+  'additional-red-6': $color-additional-red-6,
 );
 @each $key, $val in $text-color-utils {
   .u-text-#{$key} {
@@ -30,7 +29,7 @@ $text-color-utils: (
 $text-position-utils: (
   'center': center,
   'right': right,
-  'left': left
+  'left': left,
 );
 @each $key, $val in $text-position-utils {
   .u-text-#{$key} {
@@ -41,7 +40,7 @@ $text-position-utils: (
 $text-size-utils: (
   '12': 12px,
   '14': 14px,
-  '16': 16px
+  '16': 16px,
 );
 @each $key, $val in $text-size-utils {
   .u-text-#{$key} {

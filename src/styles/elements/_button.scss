@@ -13,7 +13,9 @@
 
 .ant-btn-primary {
   background-color: $color-primary-9;
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     color: $color-grey-100;
     background-color: $color-primary-8;
     border-color: $color-primary-8;

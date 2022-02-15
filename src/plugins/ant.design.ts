@@ -1,4 +1,4 @@
-import { App } from '@vue/runtime-core'
+import { App } from '@vue/runtime-core';
 import {
   Typography,
   Button,
@@ -26,9 +26,9 @@ import {
   Dropdown,
   Upload,
   Space,
-  AutoComplete
-} from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css'
+  AutoComplete,
+} from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
 
 const globalComponents = (app: App<Element>) => {
   app
@@ -57,10 +57,10 @@ const globalComponents = (app: App<Element>) => {
     .use(Dropdown)
     .use(Upload)
     .use(Space)
-    .use(AutoComplete)
+    .use(AutoComplete);
 
   // Config global notification
-  app.config.globalProperties.$notification = notification
-}
+  app.config.globalProperties.$notification = notification;
+};
 
-export default globalComponents
+export default globalComponents;

@@ -13,7 +13,7 @@
 
 const dictionary = {
   en: {},
-  ja: {}
-}
+  ja: {},
+};
 
-export default dictionary
+export default dictionary;

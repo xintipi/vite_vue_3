@@ -1,9 +1,9 @@
-import { Model as BaseModel } from 'javel'
-import axios from '@/plugins/axios'
+import { Model as BaseModel } from 'javel';
+import axios from '@/plugins/axios';
 
 export default class Model extends BaseModel {
   baseUrl() {
-    return `${import.meta.env.VITE_APP_AXIOS_BASE_URL}`
+    return `${import.meta.env.VITE_APP_AXIOS_BASE_URL}`;
   }
 
   // @ts-ignore
@@ -14,7 +14,7 @@ export default class Model extends BaseModel {
       data,
       params: query,
       onUploadProgress,
-      headers
-    })
+      headers,
+    });
   }
 }

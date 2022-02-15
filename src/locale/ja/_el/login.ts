@@ -6,5 +6,5 @@ export default {
   password_label: 'パスワード',
   password_placeholder: 'パスワードを入力する',
   password_require: 'パスワードを入力してください',
-  login_submit: 'ログイン'
-}
+  login_submit: 'ログイン',
+};

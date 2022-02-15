@@ -3,25 +3,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { useI18n } from 'vue-i18n'
+  import { defineComponent } from 'vue';
+  import { useI18n } from 'vue-i18n';
 
-import HelloWorld from '@/components/HelloWorld.vue'
+  import HelloWorld from '@/components/HelloWorld.vue';
 
-export default defineComponent({
-  name: 'Index',
+  export default defineComponent({
+    name: 'Index',
 
-  components: {
-    HelloWorld
-  },
+    components: {
+      HelloWorld,
+    },
 
-  setup() {
-    const { t } = useI18n()
-    return {
-      t
-    }
-  }
-})
+    setup() {
+      const { t } = useI18n();
+      return {
+        t,
+      };
+    },
+  });
 </script>
 
 <style scoped></style>

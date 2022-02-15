@@ -1,19 +1,19 @@
-import { App } from '@vue/runtime-core'
+import { App } from '@vue/runtime-core';
 
-import { defineRule, Form, Field, ErrorMessage } from 'vee-validate'
-import { required, email, confirmed, min, numeric } from '@vee-validate/rules'
+import { defineRule, Form, Field, ErrorMessage } from 'vee-validate';
+import { required, email, confirmed, min, numeric } from '@vee-validate/rules';
 
 // Define the rule
-defineRule('required', required)
-defineRule('email', email)
-defineRule('min', min)
-defineRule('confirmed', confirmed)
-defineRule('numeric', numeric)
+defineRule('required', required);
+defineRule('email', email);
+defineRule('min', min);
+defineRule('confirmed', confirmed);
+defineRule('numeric', numeric);
 
 const validation = (app: App<Element>) => {
-  app.component('Field', Field)
-  app.component('Form', Form)
-  app.component('ErrorMessage', ErrorMessage)
-}
+  app.component('Field', Field);
+  app.component('Form', Form);
+  app.component('ErrorMessage', ErrorMessage);
+};
 
-export default validation
+export default validation;

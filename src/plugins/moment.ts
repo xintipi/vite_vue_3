@@ -1,4 +1,4 @@
-import * as moment from 'moment'
-import 'moment/locale/ja'
+import * as moment from 'moment';
+import 'moment/locale/ja';
 
-moment.locale('ja')
+moment.locale('ja');

@@ -9,9 +9,9 @@
     "start": "vite",
     "build": "vite build",
     "build:staging": "vite build --mode staging",
-    "preview": "vite preview --port 5000",
-    "lint": "eslint --ext .js,.vue src",
-    "lint:fix": "eslint --ext .js,.vue src --fix"
+    "preview": "npm run build && vite preview --port 5000",
+    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\""
   },
   "repository": {
     "type": "git",
@@ -48,7 +48,7 @@
     "@vue/eslint-config-typescript": "^10.0.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-prettier-vue": "^3.0.0",
     "eslint-plugin-vue": "^7.9.0",
     "husky": "^7.0.4",
@@ -58,17 +58,32 @@
     "sass": "^1.49.7",
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-prettier": "^9.0.3",
     "typescript": "^4.5.5",
     "vite": "^2.7.13"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{ts,vue}": "eslint --fix",
-    "*.{css,scss,vue}": "stylelint --fix",
-    "*": "prettier -w -u"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+      "prettier --write--parser json"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{scss,less,styl,html}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
   }
 }
