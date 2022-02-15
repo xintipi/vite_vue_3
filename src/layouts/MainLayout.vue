@@ -3,7 +3,7 @@
     <app-sidebar @on-collapse-side-bar="onCollapseSideBar($event)" />
     <a-layout class="main__content">
       <app-header :class="isCollapse ? 'is-collapse' : ''">
-        <slot name="header" />
+        <slot name="header"></slot>
       </app-header>
 
       <a-layout-content class="u-pt-56">
