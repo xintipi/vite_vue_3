@@ -1,53 +1,68 @@
-import { defineConfig } from 'vite'
+import type { UserConfig, ConfigEnv } from 'vite'
+import pkg from './package.json'
+import dayjs from 'dayjs'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import * as path from 'path'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  build: {
-    target: 'modules',
-    minify: true,
-    sourcemap: false
-  },
-  preview: {
-    port: 5000,
-    host: true,
-    strictPort: true
-  },
-  server: {
-    port: 8000,
-    host: true,
-    strictPort: true
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, './src/components')
-    }
-  },
-  css: {
-    postcss: {
-      plugins: [
+const { dependencies, devDependencies, name, version } = pkg
+const __APP_INFO__ = {
+  pkg: { dependencies, devDependencies, name, version },
+  lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss')
+}
+
+export default ({ command }: ConfigEnv): UserConfig => {
+  return {
+    base: command === 'build' ? '/vite_vue_3/' : '',
+    resolve: {
+      alias: [
         {
-          postcssPlugin: 'internal:charset-removal',
-          AtRule: {
-            charset: (atRule) => {
-              if (atRule.name === 'charset') {
-                atRule.remove()
+          find: 'vue-i18n',
+          replacement: 'vue-i18n/dist/vue-i18n.cjs.js'
+        },
+        { find: '@', replacement: path.resolve(__dirname, './src') }
+      ]
+    },
+    server: {
+      host: true,
+      port: 8000
+    },
+    build: {
+      target: 'es2015',
+      cssTarget: 'chrome80',
+      brotliSize: false,
+      chunkSizeWarningLimit: 2000
+    },
+    define: {
+      // setting vue-i18-next
+      // Suppress warning
+      __INTLIFY_PROD_DEVTOOLS__: false,
+      __APP_INFO__: JSON.stringify(__APP_INFO__)
+    },
+    css: {
+      postcss: {
+        plugins: [
+          {
+            postcssPlugin: 'internal:charset-removal',
+            AtRule: {
+              charset: (atRule) => {
+                if (atRule.name === 'charset') {
+                  atRule.remove()
+                }
               }
             }
           }
+        ]
+      },
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/styles/main.scss";'
         }
-      ]
-    },
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import "@/styles/main.scss";'
       }
+    },
+    // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed
+    plugins: [vue()],
+    optimizeDeps: {
+      include: ['@ant-design/icons-vue', 'ant-design-vue/es/locale/ja_JP', 'ant-design-vue/es/locale/en_US']
     }
-  },
-  optimizeDeps: {
-    include: ['@ant-design/icons-vue']
   }
-})
+}

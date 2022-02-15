@@ -6,10 +6,10 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "dev": "vite",
-    "serve": "vite preview",
+    "start": "vite",
     "build": "vite build",
     "build:staging": "vite build --mode staging",
+    "preview": "vite preview --port 5000",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue src --fix"
   },
@@ -20,6 +20,7 @@
   "dependencies": {
     "ant-design-vue": "^2.2.8",
     "axios": "^0.25.0",
+    "dayjs": "^1.10.7",
     "javel": "^0.1.7",
     "js-cookie": "^3.0.1",
     "lodash-es": "^4.17.21",
