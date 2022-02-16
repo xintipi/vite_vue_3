@@ -11,9 +11,11 @@
     "build:staging": "vite build --mode staging",
     "preview": "npm run build && vite preview --port 5000",
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,scss,vue,html,md}\"",
+    "lint:lint-staged": "lint-staged",
     "test:unit": "jest",
-    "test:unit-coverage": "jest --coverage"
+    "test:unit-coverage": "jest --coverage",
+    "postinstall": "husky install"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,8 @@
   "devDependencies": {
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons-vue": "^6.0.1",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
     "@intlify/vite-plugin-vue-i18n": "^3.2.2",
     "@types/jest": "^27.4.0",
     "@types/js-cookie": "^3.0.1",
@@ -74,23 +78,18 @@
     "node": "^12 || >=14"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,ts}": [
       "eslint --fix",
       "prettier --write"
-    ],
-    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
-      "prettier --write--parser json"
     ],
     "package.json": [
       "prettier --write"
     ],
     "*.vue": [
       "eslint --fix",
-      "prettier --write",
-      "stylelint --fix"
+      "prettier --write"
     ],
-    "*.{scss,less,styl,html}": [
-      "stylelint --fix",
+    "*.{scss,styl,html}": [
       "prettier --write"
     ],
     "*.md": [
