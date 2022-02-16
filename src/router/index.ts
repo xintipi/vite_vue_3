@@ -15,6 +15,7 @@ router.beforeEach(
   (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
     // @ts-ignore
     document.title = to.meta.title;
+    console.log(from);
     next();
   },
 );
