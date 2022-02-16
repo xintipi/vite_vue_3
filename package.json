@@ -12,7 +12,6 @@
     "preview": "npm run build && vite preview --port 5000",
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,scss,vue,html,md}\"",
-    "lint:lint-staged": "lint-staged",
     "test:unit": "jest",
     "test:unit-coverage": "jest --coverage",
     "postinstall": "husky install"
@@ -63,7 +62,6 @@
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "less": "^4.1.2",
-    "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
     "sass": "^1.49.7",
     "stylelint": "^13.13.1",
@@ -76,24 +74,5 @@
   },
   "engines": {
     "node": "^12 || >=14"
-  },
-  "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "package.json": [
-      "prettier --write"
-    ],
-    "*.vue": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{scss,styl,html}": [
-      "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write"
-    ]
   }
 }
