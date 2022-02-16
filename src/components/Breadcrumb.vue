@@ -1,5 +1,5 @@
 <template>
-  <a-breadcrumb :routes="routes" class="k-breadscrumb">
+  <a-breadcrumb :routes="routes" class="k-breadcrumb">
     <template #itemRender="{ route, routes }">
       <span v-if="routes.indexOf(route) === routes.length - 1">
         {{ route.breadcrumbName }}
@@ -11,7 +11,7 @@
   </a-breadcrumb>
 </template>
 
-<script>
+<script lang="ts">
   import { defineComponent, ref, onMounted, watch } from 'vue';
   import { useRoute } from 'vue-router';
   import { useI18n } from 'vue-i18n';
@@ -21,7 +21,7 @@
 
     setup() {
       const { t } = useI18n({ useScope: 'global' });
-      const routes = ref([]);
+      const routes = ref<any>([]);
       const route = useRoute();
 
       // all breadcrumbs
@@ -74,7 +74,7 @@
   @import '@/styles/shared/variables';
   @import '@/styles/shared/mixins';
 
-  .k-breadscrumb {
+  .k-breadcrumb {
     .ant-breadcrumb-link,
     .ant-breadcrumb-separator {
       color: $color-grey-75;

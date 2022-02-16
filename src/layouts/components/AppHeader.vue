@@ -2,9 +2,11 @@
   <a-layout-header class="header" mode="horizontal">
     <div class="header__content">
       <div class="header__content--left">
-        <k-breadcrumb />
+        <breadcrumb />
       </div>
-      <div class="header__content--right"></div>
+      <div class="header__content--right">
+        <profile />
+      </div>
     </div>
   </a-layout-header>
 </template>
@@ -12,13 +14,15 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
 
-  import KBreadcrumb from '@/components/KBreadcrumb.vue';
+  import Breadcrumb from '@/components/Breadcrumb.vue';
+  import Profile from '@/components/Profile.vue';
 
   export default defineComponent({
     name: 'AppHeader',
 
     components: {
-      KBreadcrumb,
+      Breadcrumb,
+      Profile,
     },
   });
 </script>
@@ -50,23 +54,6 @@
 
       &--right {
         @include flexbox(center, center);
-      }
-    }
-
-    &__search {
-      @include flexbox(center, center);
-      height: 32px;
-      width: 32px;
-      border-radius: 50%;
-      padding: 0;
-
-      &:not(:last-child) {
-        margin-right: 16px;
-      }
-
-      &:hover {
-        background-color: $color-primary-6;
-        color: $color-grey-100;
       }
     }
 

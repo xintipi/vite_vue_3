@@ -33,11 +33,9 @@
 <script lang="ts">
   import { defineComponent, ref } from 'vue';
 
-  import SidebarClose from '@/components/sidebar/SidebarClose.vue';
-  import SidebarDashboard from '@/components/sidebar/SidebarDashboard.vue';
-  import SidebarProject from '@/components/sidebar/SidebarProject.vue';
-  import SidebarSetting from '@/components/sidebar/SidebarSetting.vue';
-  import SidebarArrowDown from '@/components/sidebar/SidebarArrowDown.vue';
+  import SidebarClose from '@/components/modules/sidebar/SidebarClose.vue';
+  import SidebarDashboard from '@/components/modules/sidebar/SidebarDashboard.vue';
+  import SidebarProject from '@/components/modules/sidebar/SidebarProject.vue';
 
   export default defineComponent({
     name: 'AppSidebar',
@@ -46,8 +44,6 @@
       SidebarClose,
       SidebarDashboard,
       SidebarProject,
-      SidebarSetting,
-      SidebarArrowDown,
     },
 
     setup(_, { emit }) {

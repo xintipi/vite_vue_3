@@ -7,7 +7,7 @@ npm run build
 npm run build:staging
 
 git add dist -f
-git commit -m "adding dist"
+git commit --allow-empty -m "deploy"
 git subtree push --prefix dist origin gh-pages
 
 
