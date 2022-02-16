@@ -72,5 +72,9 @@ Example correct:
 
 <code>git commit -m "chore: lint commit message" -m "This is message body. In this commit we added CommitLint which lints commit message"
 </code>
+
+Exception: Can't find node in PATH, trying to find a node binary on your system
+
+Run: <code>echo "export PATH=\"$(dirname $(which node)):\$PATH\"" > ~/.huskyrc</code>
 ## License
 Copyright (c) 2022
