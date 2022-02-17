@@ -41,7 +41,7 @@
   import { useAuthStore } from '@/store/auth';
 
   export default defineComponent({
-    name: 'KProfile',
+    name: 'Profile',
 
     components: {
       IconUser,

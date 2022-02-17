@@ -10,19 +10,59 @@
       </div>
 
       <ul class="aside__menu">
-        <li class="aside__list">
-          <div
-            class="aside__collapse--header aside__link is-active router-link-exact-active is-dashboard"
+        <li v-for="navItem in navList" :key="navItem.name" class="aside__list">
+          <router-link
+            v-if="!navItem.children"
+            :to="{ name: navItem.name }"
+            :class="['aside__link', navItem.name === 'dashboard' && 'is-dashboard']"
           >
-            <sidebar-dashboard class="aside__link--nav-icon" />
-            <span class="aside__link--text">ダッシュボード</span>
-          </div>
-        </li>
+            <component :is="navItem.icon" class="aside__link--nav-icon" />
+            <span class="aside__link--text">{{ navItem.label }}</span>
+          </router-link>
 
-        <li class="aside__list">
-          <div class="aside__collapse--header aside__link">
-            <sidebar-project class="aside__link--nav-icon" />
-            <span class="aside__link--text">プロジェクト</span>
+          <div v-else class="aside__collapse">
+            <a-collapse v-model:activeKey="activeKey" :bordered="false">
+              <a-collapse-panel :key="navItem.name" :show-arrow="false" :force-render="true">
+                <template #extra>
+                  <ul>
+                    <li class="aside__list" @click="headerCollapseClick">
+                      <router-link
+                        v-slot="{ isActive, isExactActive }"
+                        :to="{ name: navItem.name }"
+                        custom
+                      >
+                        <div
+                          :class="[
+                            'aside__collapse--header aside__link',
+                            isActive && 'is-active',
+                            isExactActive && 'router-link-exact-active',
+                            navItem.name === 'dashboard' && 'is-dashboard',
+                            activeKey.includes(navItem.name) && 'is-sub-nav-open',
+                          ]"
+                          @click="null"
+                        >
+                          <component :is="navItem.icon" class="aside__link--nav-icon" />
+                          <span class="aside__link--text">{{ navItem.label }}</span>
+                          <sidebar-arrow-down class="aside__link--arrow-icon" />
+                        </div>
+                      </router-link>
+                    </li>
+                  </ul>
+                </template>
+                <ul v-if="isShowChildrenNav" class="aside__sub-nav">
+                  <li
+                    v-for="subNavItem in navItem.children"
+                    :key="subNavItem.name"
+                    class="aside__list"
+                  >
+                    <router-link :to="{ name: subNavItem.name }" class="aside__link">
+                      <i class="aside__link--circle-icon"></i>
+                      <span class="aside__text">{{ subNavItem.label }}</span>
+                    </router-link>
+                  </li>
+                </ul>
+              </a-collapse-panel>
+            </a-collapse>
           </div>
         </li>
       </ul>
@@ -31,33 +71,104 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref } from 'vue';
+  import { defineComponent, ref, watch, computed } from 'vue';
+  import { useI18n } from 'vue-i18n';
 
+  import SidebarArrowDown from '@/components/modules/sidebar/SidebarArrowDown.vue';
   import SidebarClose from '@/components/modules/sidebar/SidebarClose.vue';
   import SidebarDashboard from '@/components/modules/sidebar/SidebarDashboard.vue';
   import SidebarProject from '@/components/modules/sidebar/SidebarProject.vue';
+  import SidebarSetting from '@/components/modules/sidebar/SidebarSetting.vue';
 
   export default defineComponent({
     name: 'AppSidebar',
 
     components: {
+      SidebarArrowDown,
       SidebarClose,
       SidebarDashboard,
       SidebarProject,
+      SidebarSetting,
     },
 
     setup(_, { emit }) {
+      const { t, locale } = useI18n();
+
+      const navList = computed(() => {
+        return [
+          {
+            name: 'dashboard',
+            label: t('sidebar.dashboard'),
+            icon: 'SidebarDashboard',
+          },
+          {
+            name: 'project',
+            label: t('sidebar.project'),
+            icon: 'SidebarProject',
+          },
+          {
+            name: 'setting',
+            label: t('sidebar.setting'),
+            icon: 'SidebarSetting',
+            children: [
+              {
+                name: 'company',
+                label: t('sidebar.company'),
+              },
+              {
+                name: 'category',
+                label: t('sidebar.category'),
+              },
+            ],
+          },
+        ];
+      });
+
       // collapse sidebar
       const isCollapse = ref(false);
+
+      // collapse active sub menu
+      const activeKey = ref<(string | number)[]>([]);
+      const preActiveKeys = ref<(string | number)[]>([]);
+      const isShowChildrenNav = ref<boolean>(true);
 
       const toggleSideBar = () => {
         isCollapse.value = !isCollapse.value;
         emit('on-collapse-side-bar', isCollapse.value);
       };
 
+      const headerCollapseClick = (event) => {
+        isCollapse.value && event.stopPropagation();
+      };
+
+      watch(locale, (lang) => {
+        console.log(lang);
+      });
+
+      watch(activeKey, (newVal) => {
+        if (!isCollapse.value) preActiveKeys.value = newVal;
+      });
+
+      watch(isCollapse, () => {
+        activeKey.value = isCollapse.value
+          ? navList.value.filter((item) => item.children).map((item) => item.name)
+          : preActiveKeys.value;
+
+        // disable transition panel in first time
+        isShowChildrenNav.value = false;
+
+        setTimeout(() => {
+          isShowChildrenNav.value = true;
+        }, 200);
+      });
+
       return {
         isCollapse,
+        navList,
+        activeKey,
+        isShowChildrenNav,
         toggleSideBar,
+        headerCollapseClick,
       };
     },
   });

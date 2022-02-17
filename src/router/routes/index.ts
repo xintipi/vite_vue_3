@@ -1,9 +1,10 @@
-import { RouteRecordRaw, RouteComponent } from 'vue-router';
+import { RouteComponent, RouteRecordRaw } from 'vue-router';
 
 const APP_NAME = import.meta.env.VITE_APP_TITLE;
 
-import LoginPage from '@/pages/auth/login/index.vue';
-import DashboardPage from '@/pages/dashboard/index.vue';
+const lazyLoadPage = (pathName: string) => {
+  return () => import(`../../pages/${pathName}.vue`);
+};
 
 const routes: RouteRecordRaw[] = [
   {
@@ -13,7 +14,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'login',
-        component: LoginPage,
+        component: lazyLoadPage('auth/login/index'),
         meta: { title: `Login | ${APP_NAME}` },
       },
     ],
@@ -26,8 +27,66 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'dashboard',
-        component: DashboardPage,
+        component: lazyLoadPage('dashboard/index'),
         meta: { title: `Dashboard | ${APP_NAME}` },
+      },
+
+      {
+        path: '/project',
+        component: lazyLoadPage('base/index'),
+        meta: { title: `Project | ${APP_NAME}` },
+        children: [
+          {
+            path: '',
+            name: 'project',
+            component: lazyLoadPage('project/index'),
+          },
+          {
+            path: 'create',
+            name: 'project-create',
+            component: lazyLoadPage('project/create/index'),
+            meta: { title: `Create Project | ${APP_NAME}` },
+          },
+          {
+            path: ':id/edit',
+            name: 'project-edit',
+            component: lazyLoadPage('project/edit/index'),
+            meta: { title: `Edit Project | ${APP_NAME}` },
+          },
+        ],
+      },
+
+      {
+        path: '/setting',
+        name: 'setting',
+        component: lazyLoadPage('base/index'),
+        meta: { title: `Setting | ${APP_NAME}` },
+        children: [
+          {
+            path: 'company',
+            component: lazyLoadPage('base/index'),
+            meta: { title: `Company | ${APP_NAME}` },
+            children: [
+              {
+                path: '',
+                name: 'company',
+                component: lazyLoadPage('setting/company/index'),
+              },
+            ],
+          },
+          {
+            path: 'category',
+            component: lazyLoadPage('base/index'),
+            meta: { title: `Category | ${APP_NAME}` },
+            children: [
+              {
+                path: '',
+                name: 'category',
+                component: lazyLoadPage('setting/category/index'),
+              },
+            ],
+          },
+        ],
       },
     ],
   },
