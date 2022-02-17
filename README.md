@@ -1,71 +1,92 @@
-## Build Setup
-``` bash
-# install dependencies
+<div align="center">
+<h1>Vue admin</h1>
+</div>
+
+## Introduction
+Vue Admin is a free and open source middle and back-end template. Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology development, the out-of-the-box middle and back-end front-end solutions can also be used for learning reference.
+
+## Preparation
+
+- [node](http://nodejs.org/) and [git](https://git-scm.com/) - Project development environment
+- [Vite](https://vitejs.dev/) - Familiar with vite features
+- [Vue3](https://v3.vuejs.org/) - Familiar with Vue basic syntax
+- [TypeScript](https://www.typescriptlang.org/) - Familiar with the basic syntax of `TypeScript`
+- [Es6+](http://es6.ruanyifeng.com/) - Familiar with es6 basic syntax
+- [Vue-Router-Next](https://next.router.vuejs.org/) - Familiar with the basic use of vue-router
+- [Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/) - ui basic use
+
+## Install and use
+
+- Get the project code
+
+```bash
+git clone https://github.com/xintipi/vite_vue_3.git
+```
+
+- Installation dependencies
+
+```bash
+cd vite_vue_3
+
 npm install
+```
 
-# serve with hot reload at localhost:8000
+- run
+
+```bash
 npm run start
+```
 
-# build for production with minification
+- build
+
+```bash
+# build for production
 npm run build
-
-# build for staging with minification
+# build for staging
 npm run build:staging
+```
 
-# check eslint
+- check eslint
+
+```bash
 npm run lint:eslint
+```
 
-# format code
+- format code
+
+```bash
 npm run lint:prettier
 ```
 
-## Commitlint
-- Run command <code>npx husky add .husky/commit-msg ""</code>
+## How to pull request
 
-- Open file <code>.husky/commit-msg</code> and change into:
+1. Fork code!
+2. Create your own branch: `git checkout -b feature/xxxx`
+3. Submit your changes: `git commit -m 'type: subject'`
+4. Push your branch: `git push origin feature/xxxx`
+5. submit`pull request`
 
-```
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+## Git Contribution submission specification
 
-npx --no-install commitlint --edit "$1"
-```
+- reference [vue](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md) specification ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
 
-- Run example in below then wrong commit:
-```
-git add .
-git commit -m "this is my commit"
-```
+  - `feat` Add new features
+  - `fix` Fix the problem/BUG
+  - `style` The code style is related and does not affect the running result
+  - `perf` Optimization/performance improvement
+  - `refactor` Refactor
+  - `revert` Undo edit
+  - `test` Test related
+  - `docs` Documentation/notes
+  - `chore` Dependency update/scaffolding configuration modification etc.
+  - `workflow` Workflow improvements
+  - `ci` Continuous integration
+  - `types` Type definition file changes
+  - `wip` In development
+  
 
-- According to the Angular standard (the standard we use in this article), a commit message will follow the following structure:
-<code>type: subject</code>
-
-<code>type</code>
-```
-- build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-- ci: Changes to our CI configuration files and scripts (example scopes: Gitlab CI, Circle, BrowserStack, SauceLabs)
-- chore: add something without touching production code (Eg: update npm dependencies)
-- docs: Documentation only changes
-- feat: A new feature
-- fix: A bug fix
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- revert: Reverts a previous commit
-- style: Changes that do not affect the meaning of the code (Eg: adding white-space, formatting, missing semi-colons, etc)
-- test: Adding missing tests or correcting existing tests
-```
-
-<code>subject</code>: content of commit
-
-Example correct:
-<code>git commit -m "chore: lint commit message"
-</code>
-
-<code>git commit -m "chore: lint commit message" -m "This is message body. In this commit we added CommitLint which lints commit message"
-</code>
-
-Exception: Can't find node in PATH, trying to find a node binary on your system
-
-Run: <code>echo "export PATH=\"$(dirname $(which node)):\$PATH\"" > ~/.huskyrc</code>
+- Example: `git commit -m "chore: lint commit message"`
+- Exception: Can't find node in PATH, trying to find a node binary on your system
+  - Run: `echo "export PATH=\"$(dirname $(which node)):\$PATH\"" > ~/.huskyrc`
 ## License
 Copyright (c) 2022
