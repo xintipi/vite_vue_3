@@ -19,8 +19,7 @@
   import { defineComponent, ref, onMounted } from 'vue';
   import { useI18n } from 'vue-i18n';
 
-  import AppSidebar from '@/layouts/components/AppSidebar.vue';
-  import AppHeader from '@/layouts/components/AppHeader.vue';
+  import { AppSidebar, AppHeader } from '@/layouts/App';
 
   import localeEn from 'ant-design-vue/es/locale/en_US';
   import localeJa from 'ant-design-vue/es/locale/ja_JP';
