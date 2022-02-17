@@ -5,6 +5,7 @@ import breadcrumb from '@/locale/en/_el/breadcrumb';
 import login from '@/locale/en/_el/login';
 import user from '@/locale/en/_el/user';
 import sidebar from '@/locale/en/_el/sidebar';
+import routes from '@/locale/en/_el/routes';
 
 export default {
   common,
@@ -14,4 +15,5 @@ export default {
   login,
   user,
   sidebar,
+  routes,
 };

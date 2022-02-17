@@ -34,10 +34,7 @@
   import { defineComponent, ref } from 'vue';
   import { useRouter } from 'vue-router';
 
-  import IconUser from '@/components/modules/icons/IconUser.vue';
-  import IconUserSetting from '@/components/modules/icons/IconUserSetting.vue';
-  import IconLogout from '@/components/modules/icons/IconLogout.vue';
-
+  import { IconUser, IconUserSetting, IconLogout } from '@/components/Icons';
   import { useAuthStore } from '@/store/auth';
 
   export default defineComponent({

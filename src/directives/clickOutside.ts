@@ -1,6 +1,6 @@
 import { App } from '@vue/runtime-core';
 
-const clickOutSide = (app: App<Element>) => {
+const clickOutside = (app: App<Element>) => {
   app.directive('click-outside', {
     beforeMount(el: any, binding: any) {
       el.eventSetDrag = () => {
@@ -33,4 +33,4 @@ const clickOutSide = (app: App<Element>) => {
   });
 };
 
-export default clickOutSide;
+export default clickOutside;

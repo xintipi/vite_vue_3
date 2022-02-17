@@ -1,9 +1,9 @@
 // register all directives
 import { App } from '@vue/runtime-core';
-import clickOutSide from '@/directives/click-out-side.directive';
+import clickOutside from '@/directives/clickOutside';
 
 const directives = (app: App<Element>) => {
-  clickOutSide(app);
+  clickOutside(app);
 };
 
 export default directives;

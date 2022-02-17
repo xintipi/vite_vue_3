@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import Cookie from 'js-cookie';
-import { COOKIES_KEY } from '@/enums/cookie.enum';
+import { COOKIES_KEY } from '@/enums/cookieEnum';
 
 const instance = axios.create();
 instance.defaults.baseURL = import.meta.env.VITE_APP_AXIOS_BASE_URL;

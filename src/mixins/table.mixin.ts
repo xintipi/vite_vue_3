@@ -1,5 +1,5 @@
 import { uniqueId } from 'lodash-es';
-import { LOCALE } from '@/enums/locale.enum';
+import { LOCALE } from '@/enums/localeEnum';
 import i18n from '@/locale';
 
 export default {

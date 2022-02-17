@@ -26,7 +26,7 @@
 
       // all breadcrumbs
       const routesList = {
-        //auth
+        //Auth
         login: [
           {
             path: '/login',

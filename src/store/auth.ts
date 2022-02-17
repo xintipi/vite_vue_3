@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import Cookie from 'js-cookie';
-import { COOKIES_KEY } from '@/enums/cookie.enum';
+import { COOKIES_KEY } from '@/enums/cookieEnum';
 
 export interface AuthState {
   profile: any;

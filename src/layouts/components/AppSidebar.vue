@@ -74,11 +74,13 @@
   import { defineComponent, ref, watch, computed } from 'vue';
   import { useI18n } from 'vue-i18n';
 
-  import SidebarArrowDown from '@/components/modules/sidebar/SidebarArrowDown.vue';
-  import SidebarClose from '@/components/modules/sidebar/SidebarClose.vue';
-  import SidebarDashboard from '@/components/modules/sidebar/SidebarDashboard.vue';
-  import SidebarProject from '@/components/modules/sidebar/SidebarProject.vue';
-  import SidebarSetting from '@/components/modules/sidebar/SidebarSetting.vue';
+  import {
+    SidebarArrowDown,
+    SidebarClose,
+    SidebarDashboard,
+    SidebarProject,
+    SidebarSetting,
+  } from '@/components/Sidebar';
 
   export default defineComponent({
     name: 'AppSidebar',

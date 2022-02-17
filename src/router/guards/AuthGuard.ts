@@ -1,7 +1,7 @@
 import { useAuthStore } from '@/store/auth';
 import isEmpty from 'lodash-es/isEmpty';
 import Admin from '@/models/Admin';
-import { PERMISSIONS } from '@/enums/permissions.enum';
+import { PERMISSIONS } from '@/enums/permissionsEnum';
 
 export const auth = useAuthStore();
 
@@ -40,6 +40,8 @@ export const SetProfile = async (to: any, from: any, next: any) => {
     },
   });
 
+  console.log(to, from);
+
   if (isEmpty(data)) {
     next({ name: 'login' });
     return;
@@ -51,6 +53,7 @@ export const SetProfile = async (to: any, from: any, next: any) => {
 
 export const PermissionGuard = (to: any, from: any, next: any) => {
   if (to.meta.permissions === PERMISSIONS.ALL) {
+    console.log(from);
     next();
   } else {
     const permissions = auth.currentPermissions;

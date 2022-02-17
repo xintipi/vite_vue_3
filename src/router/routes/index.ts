@@ -1,6 +1,8 @@
 import { RouteComponent, RouteRecordRaw } from 'vue-router';
+import i18n from '@/locale';
 
-const APP_NAME = import.meta.env.VITE_APP_TITLE;
+const { t } = i18n.global;
+// const APP_NAME = import.meta.env.VITE_APP_TITLE;
 
 const lazyLoadPage = (pathName: string) => {
   return () => import(`../../pages/${pathName}.vue`);
@@ -14,8 +16,8 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'login',
-        component: lazyLoadPage('auth/login/index'),
-        meta: { title: `Login | ${APP_NAME}` },
+        component: lazyLoadPage('Auth/login/index'),
+        meta: { title: t('routes.login') },
       },
     ],
   },
@@ -27,31 +29,31 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'dashboard',
-        component: lazyLoadPage('dashboard/index'),
-        meta: { title: `Dashboard | ${APP_NAME}` },
+        component: lazyLoadPage('Dashboard/index'),
+        meta: { title: t('routes.dashboard') },
       },
 
       {
         path: '/project',
-        component: lazyLoadPage('base/index'),
-        meta: { title: `Project | ${APP_NAME}` },
+        component: lazyLoadPage('Base/index'),
+        meta: { title: t('routes.project') },
         children: [
           {
             path: '',
             name: 'project',
-            component: lazyLoadPage('project/index'),
+            component: lazyLoadPage('Project/index'),
           },
           {
             path: 'create',
             name: 'project-create',
-            component: lazyLoadPage('project/create/index'),
-            meta: { title: `Create Project | ${APP_NAME}` },
+            component: lazyLoadPage('Project/create/index'),
+            meta: { title: t('routes.create_project') },
           },
           {
             path: ':id/edit',
             name: 'project-edit',
-            component: lazyLoadPage('project/edit/index'),
-            meta: { title: `Edit Project | ${APP_NAME}` },
+            component: lazyLoadPage('Project/edit/index'),
+            meta: { title: t('routes.edit_project') },
           },
         ],
       },
@@ -59,30 +61,30 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/setting',
         name: 'setting',
-        component: lazyLoadPage('base/index'),
-        meta: { title: `Setting | ${APP_NAME}` },
+        component: lazyLoadPage('Base/index'),
+        meta: { title: t('routes.setting') },
         children: [
           {
             path: 'company',
-            component: lazyLoadPage('base/index'),
-            meta: { title: `Company | ${APP_NAME}` },
+            component: lazyLoadPage('Base/index'),
+            meta: { title: t('routes.company') },
             children: [
               {
                 path: '',
                 name: 'company',
-                component: lazyLoadPage('setting/company/index'),
+                component: lazyLoadPage('Setting/company/index'),
               },
             ],
           },
           {
             path: 'category',
-            component: lazyLoadPage('base/index'),
-            meta: { title: `Category | ${APP_NAME}` },
+            component: lazyLoadPage('Base/index'),
+            meta: { title: t('routes.category') },
             children: [
               {
                 path: '',
                 name: 'category',
-                component: lazyLoadPage('setting/category/index'),
+                component: lazyLoadPage('Setting/category/index'),
               },
             ],
           },

@@ -14,8 +14,8 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
 
-  import Breadcrumb from '@/components/Breadcrumb.vue';
-  import Profile from '@/components/Profile.vue';
+  import { Breadcrumb } from '@/components/Breadcrumb';
+  import { Profile } from '@/components/Profile';
 
   export default defineComponent({
     name: 'AppHeader',
