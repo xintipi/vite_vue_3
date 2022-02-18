@@ -124,13 +124,6 @@
         },
       );
 
-      watch(
-        () => route.query,
-        () => {
-          getRoutesList();
-        },
-      );
-
       return {
         routing,
       };
