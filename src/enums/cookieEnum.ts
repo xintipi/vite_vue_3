@@ -1,3 +1,3 @@
 export enum COOKIES_KEY {
-  token = 'access_token',
+  TOKEN = 'access_token',
 }

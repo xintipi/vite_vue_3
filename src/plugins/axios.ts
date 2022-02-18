@@ -9,8 +9,8 @@ instance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 // Interceptors
 instance.interceptors.request.use((config: AxiosRequestConfig | any): AxiosRequestConfig => {
-  if (Cookie.get(COOKIES_KEY.token)) {
-    config.headers['Authorization'] = `Bearer ${Cookie.get(COOKIES_KEY.token)}`;
+  if (Cookie.get(COOKIES_KEY.TOKEN)) {
+    config.headers['Authorization'] = `Bearer ${Cookie.get(COOKIES_KEY.TOKEN)}`;
   }
   return config;
 });

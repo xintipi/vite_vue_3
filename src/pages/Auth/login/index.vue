@@ -107,6 +107,7 @@
 
       const onSubmit = handleSubmit(() => {
         let data = { ...form.value };
+        console.log(data);
 
         loading.value = true;
       });
