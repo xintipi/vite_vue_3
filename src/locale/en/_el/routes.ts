@@ -6,5 +6,7 @@ export default {
   edit_project: 'Edit Project',
   setting: 'Setting',
   company: 'Company',
+  company_create: 'Create company',
+  company_edit: 'Edit company',
   category: 'Category',
 };

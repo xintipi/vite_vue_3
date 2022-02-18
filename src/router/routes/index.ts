@@ -74,6 +74,18 @@ const routes: RouteRecordRaw[] = [
                 name: 'company',
                 component: lazyLoadPage('Setting/company/index'),
               },
+              {
+                path: 'create',
+                name: 'company-create',
+                component: lazyLoadPage('Setting/company/create'),
+                meta: { title: t('routes.company_create') },
+              },
+              {
+                path: ':id/edit',
+                name: 'company-edit',
+                component: lazyLoadPage('Setting/company/edit'),
+                meta: { title: t('routes.company_edit') },
+              },
             ],
           },
           {

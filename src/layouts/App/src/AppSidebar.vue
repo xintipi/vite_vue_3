@@ -94,7 +94,7 @@
     },
 
     setup(_, { emit }) {
-      const { t, locale } = useI18n();
+      const { t } = useI18n();
 
       const navList = computed(() => {
         return [
@@ -117,10 +117,6 @@
                 name: 'company',
                 label: t('sidebar.company'),
               },
-              {
-                name: 'category',
-                label: t('sidebar.category'),
-              },
             ],
           },
         ];
@@ -142,10 +138,6 @@
       const headerCollapseClick = (event) => {
         isCollapse.value && event.stopPropagation();
       };
-
-      watch(locale, (lang) => {
-        console.log(lang);
-      });
 
       watch(activeKey, (newVal) => {
         if (!isCollapse.value) preActiveKeys.value = newVal;

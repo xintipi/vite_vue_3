@@ -74,7 +74,7 @@
               class="h-35"
               style="width: 150px"
             >
-              ログイン
+              {{ t('login.login_submit') }}
             </a-button>
           </div>
         </div>
@@ -109,7 +109,6 @@
         let data = { ...form.value };
 
         loading.value = true;
-        console.log(data);
       });
 
       return {

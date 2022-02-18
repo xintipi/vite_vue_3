@@ -6,5 +6,7 @@ export default {
   edit_project: 'Edit Project',
   setting: '登録設定',
   company: '登録企業',
+  company_create: 'Create 登録企業',
+  company_edit: 'Edit 登録企業',
   category: '登録大分類',
 };

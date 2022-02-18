@@ -1,5 +1,5 @@
 <template>
-  <a-breadcrumb :routes="routes" class="k-breadcrumb">
+  <a-breadcrumb :routes="routing" class="k-breadcrumb">
     <template #itemRender="{ route, routes }">
       <span v-if="routes.indexOf(route) === routes.length - 1">
         {{ route.breadcrumbName }}
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, onMounted, watch } from 'vue';
+  import { defineComponent, ref, watch, computed, onBeforeMount } from 'vue';
   import { useRoute } from 'vue-router';
   import { useI18n } from 'vue-i18n';
 
@@ -20,51 +20,119 @@
     name: 'Breadcrumb',
 
     setup() {
-      const { t } = useI18n({ useScope: 'global' });
-      const routes = ref<any>([]);
+      const { t, locale } = useI18n({ useScope: 'global' });
+      const routing = ref<any[]>([]);
       const route = useRoute();
 
-      // all breadcrumbs
-      const routesList = {
-        //Auth
-        login: [
-          {
-            path: '/login',
-          },
-        ],
+      const company = computed(() => {
+        return {
+          path: '/setting/company',
+          breadcrumbName: t('breadcrumb.company'),
+        };
+      });
 
-        //dashboard
-        dashboard: [
-          {
-            path: '/',
-            breadcrumbName: t('breadcrumb.dashboard'),
-          },
-        ],
-      };
+      const routesList = computed(() => {
+        return {
+          // auth
+          login: [
+            {
+              path: '/login',
+            },
+          ],
+
+          // dashboard
+          dashboard: [
+            {
+              path: '/',
+              breadcrumbName: t('breadcrumb.dashboard'),
+            },
+          ],
+
+          // project
+          project: [
+            {
+              path: '/project',
+              breadcrumbName: t('breadcrumb.project'),
+            },
+          ],
+
+          'project-create': [
+            {
+              path: '/project',
+              breadcrumbName: t('breadcrumb.project_create_edit'),
+            },
+            {
+              path: 'create',
+              breadcrumbName: t('breadcrumb.create'),
+            },
+          ],
+
+          'project-edit': [
+            {
+              path: '/project',
+              breadcrumbName: t('breadcrumb.project_create_edit'),
+            },
+            {
+              path: ':id/edit',
+              breadcrumbName: t('breadcrumb.edit'),
+            },
+          ],
+
+          // company
+          company: [company.value],
+
+          'company-create': [
+            company.value,
+            {
+              path: 'create',
+              breadcrumbName: t('breadcrumb.create'),
+            },
+          ],
+
+          'company-edit': [
+            company.value,
+            {
+              path: ':id/edit',
+              breadcrumbName: t('breadcrumb.edit'),
+            },
+          ],
+        };
+      });
 
       const getRoutesList = () => {
         const nameRoute = route?.name || '';
-        routes.value = routesList[nameRoute] || [];
-        if (route?.query && routes.value.length > 0) {
-          routes.value[routes.value.length - 1].query = Object.keys(route.query).length
+        routing.value = routesList.value[nameRoute] || [];
+        if (route?.query && routing.value.length > 0) {
+          routing.value[routing.value.length - 1].query = Object.keys(route.query).length
             ? { ...route.query }
             : '';
         }
       };
 
-      onMounted(() => {
-        getRoutesList(route);
+      onBeforeMount(() => {
+        getRoutesList();
+      });
+
+      watch(locale, () => {
+        getRoutesList();
       });
 
       watch(
         () => route.query,
         () => {
-          getRoutesList(route);
+          getRoutesList();
+        },
+      );
+
+      watch(
+        () => route.query,
+        () => {
+          getRoutesList();
         },
       );
 
       return {
-        routes,
+        routing,
       };
     },
   });
