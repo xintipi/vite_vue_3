@@ -11,9 +11,9 @@ Vue Admin is a free and open source middle and back-end template. Using the late
 - [Vite](https://vitejs.dev/) - Familiar with vite features
 - [Vue3](https://v3.vuejs.org/) - Familiar with Vue basic syntax
 - [TypeScript](https://www.typescriptlang.org/) - Familiar with the basic syntax of `TypeScript`
-- [Es6+](http://es6.ruanyifeng.com/) - Familiar with es6 basic syntax
+- [Es6+](https://www.javascripttutorial.net/es6/) - Familiar with es6 basic syntax
 - [Vue-Router-Next](https://next.router.vuejs.org/) - Familiar with the basic use of vue-router
-- [Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/) - ui basic use
+- [Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce/) - ui basic use
 
 ## Install and use
 
