@@ -1,14 +1,11 @@
 import { App } from '@vue/runtime-core';
 import {
-  Typography,
   Button,
   DatePicker,
   Checkbox,
   Pagination,
   Table,
   Layout,
-  Collapse,
-  Modal,
   Select,
   Form,
   Input,
@@ -18,29 +15,20 @@ import {
   Popover,
   Menu,
   Radio,
-  Tag,
-  notification,
-  Tabs,
-  Tooltip,
   Spin,
   Dropdown,
-  Upload,
-  Space,
   AutoComplete,
 } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
-const globalComponents = (app: App<Element>) => {
+const useAntdesignComponent = (app: App<Element>) => {
   app
-    .use(Typography)
     .use(Button)
     .use(DatePicker)
     .use(Checkbox)
     .use(Pagination)
     .use(Table)
     .use(Layout)
-    .use(Collapse)
-    .use(Modal)
     .use(Form)
     .use(Input)
     .use(InputNumber)
@@ -50,17 +38,9 @@ const globalComponents = (app: App<Element>) => {
     .use(Menu)
     .use(Radio)
     .use(Select)
-    .use(Tag)
-    .use(Tabs)
-    .use(Tooltip)
     .use(Spin)
     .use(Dropdown)
-    .use(Upload)
-    .use(Space)
     .use(AutoComplete);
-
-  // Config global notification
-  app.config.globalProperties.$notification = notification;
 };
 
-export default globalComponents;
+export default useAntdesignComponent;

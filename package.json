@@ -10,8 +10,8 @@
     "build": "vite build",
     "build:staging": "vite build --mode staging",
     "preview": "npm run build && vite preview --port 5000 --open",
-    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,scss,vue,html,md}\"",
+    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts}\" --fix",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,ts,json,css,scss,vue,html,md}\"",
     "test:unit": "jest",
     "test:unit-coverage": "jest --coverage",
     "postinstall": "husky install"
@@ -23,7 +23,6 @@
   "dependencies": {
     "ant-design-vue": "^3.0.0-beta.9",
     "axios": "^0.25.0",
-    "dayjs": "^1.10.7",
     "javel": "^0.1.7",
     "js-cookie": "^3.0.1",
     "lodash-es": "^4.17.21",
@@ -61,7 +60,6 @@
     "eslint-plugin-vue": "^8.0.1",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
-    "less": "^4.1.2",
     "prettier": "^2.5.1",
     "sass": "^1.49.7",
     "stylelint": "^13.13.1",

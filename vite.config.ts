@@ -1,13 +1,13 @@
 import type { UserConfig } from 'vite';
 import pkg from './package.json';
-import dayjs from 'dayjs';
+import moment from 'moment';
 import vue from '@vitejs/plugin-vue';
 import * as path from 'path';
 
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
-  lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+  lastBuildTime: moment().format('YYYY-MM-DD HH:mm:ss'),
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

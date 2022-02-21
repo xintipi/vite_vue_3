@@ -10,10 +10,10 @@ defineRule('min', min);
 defineRule('confirmed', confirmed);
 defineRule('numeric', numeric);
 
-const validation = (app: App<Element>) => {
+const useValidate = (app: App<Element>) => {
   app.component('Field', Field);
   app.component('Form', Form);
   app.component('ErrorMessage', ErrorMessage);
 };
 
-export default validation;
+export default useValidate;
