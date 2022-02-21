@@ -1,4 +1,4 @@
-import type { UserConfig, ConfigEnv } from 'vite';
+import type { UserConfig } from 'vite';
 import pkg from './package.json';
 import dayjs from 'dayjs';
 import vue from '@vitejs/plugin-vue';
@@ -11,7 +11,7 @@ const __APP_INFO__ = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default ({ command }: ConfigEnv): UserConfig => {
+export default (): UserConfig => {
   // command === 'build' ? '/vite_vue_3/' : ''
   return {
     base: './',
