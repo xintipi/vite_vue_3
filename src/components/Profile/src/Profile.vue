@@ -59,10 +59,10 @@
         }
       };
 
-      const handleLogout = async () => {
+      const handleLogout = () => {
         // clear all modules state
         auth.setLogout();
-        await router.push({ name: 'login' });
+        router.push({ name: 'login' });
       };
 
       return {
