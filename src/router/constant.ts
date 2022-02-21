@@ -3,7 +3,7 @@ import { RouteComponent } from 'vue-router';
 /**
  * @description: default layout
  */
-export const LAYOUT = (): Promise<RouteComponent> => import('@/layouts/MainLayout.vue');
+export const LAYOUT = (): Promise<RouteComponent> => import('@/layouts/index.vue');
 
 /**
  * @description: default base page
