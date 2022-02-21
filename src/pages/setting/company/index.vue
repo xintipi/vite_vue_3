@@ -1,5 +1,13 @@
 <template>
-  <div class="setting-company">Setting Company</div>
+  <div class="setting-company">
+    <h2>Setting Company</h2>
+    <a-button type="primary" @click="$router.push({ name: 'company-create' })">
+      Move to create
+    </a-button>
+    <a-button type="primary" @click="$router.push({ name: 'company-edit', params: { id: 1 } })">
+      Move to edit
+    </a-button>
+  </div>
 </template>
 
 <script lang="ts">
