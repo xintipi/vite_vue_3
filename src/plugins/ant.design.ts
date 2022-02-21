@@ -1,11 +1,14 @@
 import { App } from '@vue/runtime-core';
 import {
+  Typography,
   Button,
   DatePicker,
   Checkbox,
   Pagination,
   Table,
   Layout,
+  Collapse,
+  Modal,
   Select,
   Form,
   Input,
@@ -15,20 +18,28 @@ import {
   Popover,
   Menu,
   Radio,
+  Tag,
+  Tabs,
+  Tooltip,
   Spin,
   Dropdown,
+  Upload,
+  Space,
   AutoComplete,
 } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
-const useAntdesignComponent = (app: App<Element>) => {
+const registerAntdesign = (app: App<Element>) => {
   app
+    .use(Typography)
     .use(Button)
     .use(DatePicker)
     .use(Checkbox)
     .use(Pagination)
     .use(Table)
     .use(Layout)
+    .use(Collapse)
+    .use(Modal)
     .use(Form)
     .use(Input)
     .use(InputNumber)
@@ -38,9 +49,14 @@ const useAntdesignComponent = (app: App<Element>) => {
     .use(Menu)
     .use(Radio)
     .use(Select)
+    .use(Tag)
+    .use(Tabs)
+    .use(Tooltip)
     .use(Spin)
     .use(Dropdown)
+    .use(Upload)
+    .use(Space)
     .use(AutoComplete);
 };
 
-export default useAntdesignComponent;
+export default registerAntdesign;

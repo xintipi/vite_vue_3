@@ -4,22 +4,22 @@ import App from '@/App.vue';
 import router from '@/router';
 import i18n from '@/locale';
 
-import useDirectives from '@/directives';
+import registerDirectives from '@/directives';
 
-import useAntdesignComponent from '@/plugins/ant.design';
-import useValidate from '@/plugins/validation';
-import usingMoment from '@/plugins/moment';
+import registerAntdesign from '@/plugins/ant.design';
+import registerVee from '@/plugins/validation';
 import pinia from '@/plugins/pinia';
 
 const app = createApp(App);
 
-// directive
-useDirectives(app);
-// register plugin
-useAntdesignComponent(app);
-useValidate(app);
-usingMoment(app);
-// use plugin
+// Register plugins
+registerAntdesign(app);
+registerVee(app);
+
+// Register directives
+registerDirectives(app);
+
 app.use(i18n).use(router).use(pinia);
+
 // mount app
 app.mount('#app');

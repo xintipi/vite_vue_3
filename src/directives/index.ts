@@ -2,8 +2,8 @@
 import { App } from '@vue/runtime-core';
 import clickOutside from '@/directives/clickOutside';
 
-const useDirectives = (app: App<Element>) => {
+const registerDirectives = (app: App<Element>) => {
   clickOutside(app);
 };
 
-export default useDirectives;
+export default registerDirectives;
