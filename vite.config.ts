@@ -10,10 +10,11 @@ const __APP_INFO__ = {
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default ({ command }: ConfigEnv): UserConfig => {
   // command === 'build' ? '/vite_vue_3/' : ''
   return {
-    base: command === 'build' ? '/vite_vue_3/' : '',
+    base: './',
     resolve: {
       alias: [
         {
