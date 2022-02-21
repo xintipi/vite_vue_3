@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'login',
-        component: lazyLoadPage('Auth/login'),
+        component: lazyLoadPage('Auth/Login'),
         meta: { title: t('routes.login') },
       },
     ],
@@ -46,13 +46,13 @@ const routes: RouteRecordRaw[] = [
           {
             path: 'create',
             name: 'project-create',
-            component: lazyLoadPage('Project/create'),
+            component: lazyLoadPage('Project/Create'),
             meta: { title: t('routes.create_project') },
           },
           {
             path: ':id/edit',
             name: 'project-edit',
-            component: lazyLoadPage('Project/edit'),
+            component: lazyLoadPage('Project/Edit'),
             meta: { title: t('routes.edit_project') },
           },
         ],
@@ -72,18 +72,18 @@ const routes: RouteRecordRaw[] = [
               {
                 path: '',
                 name: 'company',
-                component: lazyLoadPage('Setting/company'),
+                component: lazyLoadPage('Setting/Company'),
               },
               {
                 path: 'create',
                 name: 'company-create',
-                component: lazyLoadPage('Setting/company/create'),
+                component: lazyLoadPage('Setting/Company/Create'),
                 meta: { title: t('routes.company_create') },
               },
               {
                 path: ':id/edit',
                 name: 'company-edit',
-                component: lazyLoadPage('Setting/company/edit'),
+                component: lazyLoadPage('Setting/Company/Edit'),
                 meta: { title: t('routes.company_edit') },
               },
             ],
@@ -96,7 +96,7 @@ const routes: RouteRecordRaw[] = [
               {
                 path: '',
                 name: 'category',
-                component: lazyLoadPage('Setting/category'),
+                component: lazyLoadPage('Setting/Category'),
               },
             ],
           },
