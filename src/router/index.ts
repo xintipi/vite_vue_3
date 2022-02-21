@@ -1,6 +1,6 @@
 import {
   createRouter,
-  createWebHistory,
+  createWebHashHistory,
   RouteLocationNormalized,
   NavigationGuardNext,
   RouteRecordRaw,
@@ -8,7 +8,7 @@ import {
 import { basicRoutes } from './routes';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.VITE_ROUTER_BASE as string),
+  history: createWebHashHistory(import.meta.env.VITE_ROUTER_BASE as string),
   linkActiveClass: 'is-active',
   routes: basicRoutes as unknown as RouteRecordRaw[],
   strict: true,
