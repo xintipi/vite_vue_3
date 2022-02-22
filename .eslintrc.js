@@ -71,5 +71,6 @@ module.exports = {
         math: 'always',
       },
     ],
+    'vue/v-on-event-hyphenation': 'off',
   },
 };

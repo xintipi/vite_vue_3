@@ -1,4 +1,5 @@
 export default {
   intro: 'Hello Vue 3 + TypeScript + Vite + Ant + Vee-validate + Pinia + Axios',
-  count: 'count is',
+  handle_cancel: 'Cancel',
+  handle_ok: 'Ok',
 };

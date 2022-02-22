@@ -9,6 +9,7 @@ import registerDirectives from '@/directives';
 import registerAntdesign from '@/plugins/ant.design';
 import registerVee from '@/plugins/validation';
 import pinia from '@/plugins/pinia';
+import dayjs from 'dayjs';
 
 const app = createApp(App);
 
@@ -20,6 +21,8 @@ registerVee(app);
 registerDirectives(app);
 
 app.use(i18n).use(router).use(pinia);
+
+app.config.globalProperties.$dayjs = dayjs;
 
 // mount app
 app.mount('#app');

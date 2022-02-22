@@ -6,8 +6,8 @@
         <slot name="header"></slot>
       </app-header>
 
-      <a-layout-content class="u-pt-56">
-        <a-config-provider>
+      <a-layout-content class="main-layout">
+        <a-config-provider :locale="locales[locale]">
           <router-view />
         </a-config-provider>
       </a-layout-content>
@@ -19,15 +19,14 @@
   import { defineComponent, ref, onMounted } from 'vue';
   import { useI18n } from 'vue-i18n';
 
+  import dayjs from 'dayjs';
+  import 'dayjs/locale/ja';
+  dayjs.locale('ja');
+
   import { AppSidebar, AppHeader } from '@/layouts/App';
 
   import localeEn from 'ant-design-vue/es/locale/en_US';
   import localeJa from 'ant-design-vue/es/locale/ja_JP';
-
-  interface Record {
-    en: any;
-    ja: any;
-  }
 
   export default defineComponent({
     name: 'IndexLayout',
@@ -40,7 +39,7 @@
     setup() {
       const { locale } = useI18n();
 
-      const locales = ref<Record>({ en: localeEn, ja: localeJa });
+      const locales = ref({ en: localeEn, ja: localeJa });
       const isCollapse = ref<boolean>();
 
       const onCollapseSideBar = (isCollapseEmit: boolean) => {

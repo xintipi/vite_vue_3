@@ -26,6 +26,8 @@ import {
   Upload,
   Space,
   AutoComplete,
+  Col,
+  Row,
 } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
@@ -56,7 +58,9 @@ const registerAntdesign = (app: App<Element>) => {
     .use(Dropdown)
     .use(Upload)
     .use(Space)
-    .use(AutoComplete);
+    .use(AutoComplete)
+    .use(Row)
+    .use(Col);
 };
 
 export default registerAntdesign;

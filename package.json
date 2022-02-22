@@ -21,8 +21,9 @@
     "url": "https://github.com/xintipi/vite_vue_3.git"
   },
   "dependencies": {
-    "ant-design-vue": "^3.0.0-beta.9",
+    "ant-design-vue": "^2.2.8",
     "axios": "^0.25.0",
+    "dayjs": "^1.10.7",
     "javel": "^0.1.7",
     "js-cookie": "^3.0.1",
     "lodash-es": "^4.17.21",

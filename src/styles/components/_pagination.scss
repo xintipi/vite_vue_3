@@ -18,7 +18,8 @@
 }
 
 .ant-pagination-item-active {
-  border: 0;
+  font-weight: 400;
+  background: $color-grey-55;
 
   a {
     color: $color-grey-100;

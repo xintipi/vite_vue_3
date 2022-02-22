@@ -1,0 +1,515 @@
+{
+  "result": {
+    "data": [
+      {
+        "id": 119,
+        "code": "V054",
+        "name": "ZOO",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-11-22T03:06:49.516Z"
+      },
+      {
+        "id": 118,
+        "code": "V053",
+        "name": "SUSUMI",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Viet Nam",
+        "currency_code": "VND",
+        "created_at": "2021-11-22T02:50:37.688Z"
+      },
+      {
+        "id": 117,
+        "code": "V052",
+        "name": "test",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-10-08T06:16:38.665Z"
+      },
+      {
+        "id": 107,
+        "code": "J101",
+        "name": "東京都は2",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-23T08:08:41.263Z"
+      },
+      {
+        "id": 106,
+        "code": "V068",
+        "name": "pepsi",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Viet Nam",
+        "currency_code": "VND",
+        "created_at": "2021-08-21T03:11:41.982Z"
+      },
+      {
+        "id": 105,
+        "code": "V067",
+        "name": "コカ・コーラ",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Viet Nam",
+        "currency_code": "VND",
+        "created_at": "2021-08-21T03:10:55.368Z"
+      },
+      {
+        "id": 104,
+        "code": "J100",
+        "name": "AKB",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-21T03:02:44.233Z"
+      },
+      {
+        "id": 83,
+        "code": "V031",
+        "name": "Vand Creative ",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-10T09:03:01.925Z"
+      },
+      {
+        "id": 12,
+        "code": "V012",
+        "name": "Apple inc.",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 13,
+        "code": "V013",
+        "name": "BLACK PINK",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 15,
+        "code": "V015",
+        "name": "MEDI HEAL",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 19,
+        "code": "V019",
+        "name": "WIZBIZa",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 22,
+        "code": "V022",
+        "name": "TESLA",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 33,
+        "code": "V033",
+        "name": "LABOCARE",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 39,
+        "code": "V040",
+        "name": "OGANIC",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 40,
+        "code": "V050",
+        "name": "ROSE",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Viet Nam",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 1,
+        "code": "J001",
+        "name": "WORKS JAPAN",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 2,
+        "code": "J002",
+        "name": "NEWPHORIA",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 3,
+        "code": "J003",
+        "name": "D2C",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 4,
+        "code": "J004",
+        "name": "GUMI JAPAN",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 5,
+        "code": "J005",
+        "name": "TRIHIKO",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 6,
+        "code": "J006",
+        "name": "NEXTMAGIC",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 7,
+        "code": "J007",
+        "name": "APRICOT",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 8,
+        "code": "J008",
+        "name": "ES-JPN",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 9,
+        "code": "J009",
+        "name": "HITACHI-JP",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 10,
+        "code": "J010",
+        "name": "WIZBIZq",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 11,
+        "code": "J011",
+        "name": "Capital One",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 14,
+        "code": "J014",
+        "name": "WIZBIZy",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 16,
+        "code": "J016",
+        "name": "WIZBIZi",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 17,
+        "code": "J017",
+        "name": "Shopee",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 18,
+        "code": "J018",
+        "name": "google",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 20,
+        "code": "J020",
+        "name": "MOMO",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 23,
+        "code": "J023",
+        "name": "WIZBIZg",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 24,
+        "code": "J024",
+        "name": "三菱グループ",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 25,
+        "code": "J025",
+        "name": "WIZBIZj",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 26,
+        "code": "J026",
+        "name": "WINDOWS",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 27,
+        "code": "J027",
+        "name": "東芝",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "VND",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 28,
+        "code": "J028",
+        "name": "WIZBIZz",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Japan",
+        "currency_code": "VND",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 29,
+        "code": "J029",
+        "name": "LV",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "VND",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 30,
+        "code": "J030",
+        "name": "YAMAHA",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Japan",
+        "currency_code": "VND",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 31,
+        "code": "J031",
+        "name": "HONDA",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "VND",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 32,
+        "code": "J032",
+        "name": "moderna",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Japan",
+        "currency_code": "VND",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 34,
+        "code": "J034",
+        "name": "TIKI",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 35,
+        "code": "J035",
+        "name": "KFC",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 36,
+        "code": "J037",
+        "name": "sendo",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 37,
+        "code": "J038",
+        "name": "AMAZON",
+        "division_name": "customer_and_partner",
+        "divisions": 2,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 38,
+        "code": "V039",
+        "name": "soft bank",
+        "division_name": "partner",
+        "divisions": 1,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 41,
+        "code": "V051",
+        "name": "BizOn!",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 42,
+        "code": "J052",
+        "name": "ESAS",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      },
+      {
+        "id": 43,
+        "code": "J053",
+        "name": "samsung",
+        "division_name": "customer",
+        "divisions": 0,
+        "country_name": "Japan",
+        "currency_code": "JPY",
+        "created_at": "2021-08-09T02:33:34.128Z"
+      }
+    ],
+    "meta": {
+      "total_records": 49,
+      "total_pages": 4,
+      "page_size": 10,
+      "page_number": 1
+    }
+  },
+  "error_code": "0000",
+  "error_message": "company.0000",
+  "errors": null
+}

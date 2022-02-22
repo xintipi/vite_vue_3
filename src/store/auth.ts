@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import Cookie from 'js-cookie';
 import { COOKIES_KEY } from '@/enums/cookieEnum';
-import { clearLastActivity } from '@/utils/activityTracker';
 
 export interface AuthState {
   profile: any;
@@ -27,7 +26,7 @@ export const useAuthStore = defineStore({
   actions: {
     setToken({ token }: any) {
       this.token = token;
-      Cookie.set(COOKIES_KEY.token, token);
+      Cookie.set(COOKIES_KEY.TOKEN, token);
     },
 
     setProfile({ profile }: any) {
@@ -41,8 +40,7 @@ export const useAuthStore = defineStore({
     setLogout() {
       this.token = null;
       this.profile = null;
-      clearLastActivity();
-      Cookie.remove(COOKIES_KEY.token);
+      Cookie.remove(COOKIES_KEY.TOKEN);
     },
   },
 });

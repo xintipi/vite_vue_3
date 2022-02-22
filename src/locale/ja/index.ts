@@ -6,6 +6,7 @@ import login from '@/locale/ja/_el/login';
 import user from '@/locale/ja/_el/user';
 import sidebar from '@/locale/ja/_el/sidebar';
 import routes from '@/locale/ja/_el/routes';
+import company from '@/locale/ja/_el/company';
 
 export default {
   common,
@@ -16,4 +17,5 @@ export default {
   user,
   sidebar,
   routes,
+  company,
 };

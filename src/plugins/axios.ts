@@ -3,7 +3,7 @@ import Cookie from 'js-cookie';
 import { COOKIES_KEY } from '@/enums/cookieEnum';
 
 const instance = axios.create();
-instance.defaults.baseURL = import.meta.env.VITE_APP_AXIOS_BASE_URL;
+instance.defaults.baseURL = import.meta.env.VITE_APP_AXIOS_BASE_URL as string;
 instance.defaults.headers.common['Accept'] = 'application/json';
 instance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

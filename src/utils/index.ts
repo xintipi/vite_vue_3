@@ -26,4 +26,16 @@ const withInstall = <T>(component: T, alias?: string) => {
   return component as T & Plugin;
 };
 
-export { deleteEmptyValue, withInstall };
+const convertPagination = (pagination: any, position = 'top') => {
+  return {
+    defaultCurrent: 1,
+    defaultPageSize: 10,
+    current: pagination.page_number,
+    total: pagination.total_records,
+    totalPage: pagination.total_pages,
+    pageSize: pagination.page_size,
+    position: position,
+  };
+};
+
+export { deleteEmptyValue, withInstall, convertPagination };

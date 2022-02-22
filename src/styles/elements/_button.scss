@@ -4,6 +4,8 @@
 }
 
 .ant-btn-default {
+  border-color: $color-primary-9;
+
   &:hover {
     background-color: $color-primary-6;
     color: $color-grey-100;
@@ -13,6 +15,7 @@
 
 .ant-btn-primary {
   background-color: $color-primary-9;
+  border-color: $color-primary-9;
 
   &:hover,
   &:focus {
@@ -28,9 +31,13 @@
   border-color: $color-additional-red-5;
 }
 
-.ant-btn-link:hover {
-  border-color: transparent;
-  background-color: transparent;
+.ant-btn-link {
+  color: $color-primary-9;
+
+  &:hover {
+    border-color: transparent;
+    background-color: transparent;
+  }
 }
 
 .btn-icon {

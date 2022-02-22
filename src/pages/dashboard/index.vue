@@ -1,5 +1,7 @@
 <template>
-  <HelloWorld :msg="t('common.intro')" />
+  <section class="dashboard">
+    <HelloWorld :msg="t('common.intro')" />
+  </section>
 </template>
 
 <script lang="ts">
@@ -24,4 +26,11 @@
   });
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+  .dashboard {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+  }
+</style>

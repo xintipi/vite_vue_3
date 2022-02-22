@@ -10,7 +10,7 @@
   &:after {
     content: '';
     display: block;
-    background: url('../assets/icons/ico_swap_right.png') no-repeat;
+    background: url('@/assets/icons/ico_swap_right.png') no-repeat;
     background-size: cover;
     position: absolute;
     top: 10%;
@@ -25,12 +25,11 @@
   &:after {
     content: '';
     display: block;
-    background: url('../assets/icons/ico_swap_right.png') no-repeat;
+    background: url('@/assets/icons/ico_swap_right.png') no-repeat;
     background-size: cover;
     width: 16px;
     position: absolute;
     top: 20%;
     height: 16px;
-    width: 16px;
   }
 }
