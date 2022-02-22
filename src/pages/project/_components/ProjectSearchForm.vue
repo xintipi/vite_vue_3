@@ -1,161 +1,158 @@
 <template>
   <div class="project__search">
-    <a-config-provider :locale="locales[locale]">
-      <form @submit.prevent="onSubmit">
-        <a-row type="flex">
-          <a-col flex="5">
-            <!-- Group -->
-            <div class="form-group">
-              <div class="form-content">
-                <label class="form-label">{{ $t('project.group_name') }}</label>
+    <form @submit.prevent="onSubmit">
+      <a-row type="flex">
+        <a-col flex="5">
+          <!-- Group -->
+          <div class="form-group">
+            <div class="form-content">
+              <label class="form-label">{{ $t('project.group_name') }}</label>
 
-                <div class="form-select">
-                  <a-select
-                    v-model:value="form.groupId"
-                    show-arrow
-                    :max-tag-count="0"
-                    option-label-prop="label"
-                    dropdown-class-name="multiple-select-custom"
-                    mode="multiple"
-                    :placeholder="$t('project.group_placeholder')"
-                    style="width: 288px"
+              <div class="form-select">
+                <a-select
+                  v-model:value="form.groupId"
+                  show-arrow
+                  :max-tag-count="0"
+                  option-label-prop="label"
+                  dropdown-class-name="multiple-select-custom"
+                  mode="multiple"
+                  :placeholder="$t('project.group_placeholder')"
+                  style="width: 288px"
+                >
+                  <a-select-option v-for="group in dataGroups" :key="group.id" :value="group.id">
+                    {{ group.name }}
+                  </a-select-option>
+                </a-select>
+              </div>
+            </div>
+          </div>
+          <!--./Group -->
+
+          <!-- Accounts -->
+          <div class="form-group">
+            <div class="form-content">
+              <label class="form-label">{{ $t('project.account_name') }}</label>
+
+              <div class="form-select">
+                <a-select
+                  v-model:value="form.accountId"
+                  show-arrow
+                  :max-tag-count="0"
+                  option-label-prop="label"
+                  dropdown-class-name="multiple-select-custom"
+                  mode="multiple"
+                  :placeholder="$t('project.accounts_placeholder')"
+                  style="width: 288px"
+                >
+                  <a-select-option
+                    v-for="account in dataAccounts"
+                    :key="account.id"
+                    :value="account.id"
                   >
-                    <a-select-option v-for="group in dataGroups" :key="group.id" :value="group.id">
-                      {{ group.name }}
-                    </a-select-option>
-                  </a-select>
-                </div>
+                    {{ account.fullname }}
+                  </a-select-option>
+                </a-select>
               </div>
             </div>
-            <!--./Group -->
+          </div>
+          <!-- ./Accounts -->
 
-            <!-- Accounts -->
-            <div class="form-group">
-              <div class="form-content">
-                <label class="form-label">{{ $t('project.account_name') }}</label>
-
-                <div class="form-select">
-                  <a-select
-                    v-model:value="form.accountId"
-                    show-arrow
-                    :max-tag-count="0"
-                    option-label-prop="label"
-                    dropdown-class-name="multiple-select-custom"
-                    mode="multiple"
-                    :placeholder="$t('project.accounts_placeholder')"
-                    style="width: 288px"
-                  >
-                    <a-select-option
-                      v-for="account in dataAccounts"
-                      :key="account.id"
-                      :value="account.id"
-                    >
-                      {{ account.fullname }}
-                    </a-select-option>
-                  </a-select>
-                </div>
+          <!-- Status -->
+          <div class="form-group">
+            <div class="form-content">
+              <label class="form-label">{{ $t('project.status') }}</label>
+              <div class="form-checkbox">
+                <a-checkbox-group
+                  v-model:value="form.statusId"
+                  name="projectStatuses"
+                  :options="dataStatuses"
+                />
               </div>
             </div>
-            <!-- ./Accounts -->
+          </div>
+          <!-- ./Status -->
+        </a-col>
 
-            <!-- Status -->
-            <div class="form-group">
-              <div class="form-content">
-                <label class="form-label">{{ $t('project.status') }}</label>
-                <div class="form-checkbox">
-                  <a-checkbox-group
-                    v-model:value="form.statusId"
-                    name="projectStatuses"
-                    :options="dataStatuses"
-                  />
-                </div>
+        <a-col flex="5">
+          <!--Date From-->
+          <div class="form-group">
+            <div class="form-content">
+              <label class="form-label">{{ $t('project.updated_date') }}</label>
+
+              <div class="form-select">
+                <a-range-picker
+                  v-model:value="form.updatedDateValue"
+                  format="YYYY-MM-DD"
+                  :placeholder="['YYYY/MM/DD', 'YYYY/MM/DD']"
+                >
+                  <template #suffixIcon>
+                    <calendar-outlined />
+                  </template>
+                </a-range-picker>
               </div>
             </div>
-            <!-- ./Status -->
-          </a-col>
+          </div>
+          <!--./Date From -->
 
-          <a-col flex="5">
-            <!--Date From-->
-            <div class="form-group">
-              <div class="form-content">
-                <label class="form-label">{{ $t('project.updated_date') }}</label>
+          <!--Date From-->
+          <div class="form-group">
+            <div class="form-content">
+              <label class="form-label">{{ $t('project.statistics_from_month') }}</label>
 
-                <div class="form-select">
-                  <a-range-picker
-                    v-model:value="form.updatedDateValue"
-                    format="YYYY-MM-DD"
-                    :placeholder="['YYYY/MM/DD', 'YYYY/MM/DD']"
-                  >
-                    <template #suffixIcon>
-                      <calendar-outlined />
-                    </template>
-                  </a-range-picker>
-                </div>
+              <div class="form-select">
+                <a-range-picker
+                  :placeholder="['YYYY/MM', 'YYYY/MM']"
+                  format="YYYY-MM"
+                  :value="form.statisticsDateValue"
+                  :mode="mode"
+                  @panelChange="handleStatisticsDateValue2"
+                  @change="handleStatisticsDateValue"
+                />
               </div>
             </div>
-            <!--./Date From -->
+          </div>
+          <!--./Date From -->
 
-            <!--Date From-->
-            <div class="form-group">
-              <div class="form-content">
-                <label class="form-label">{{ $t('project.statistics_from_month') }}</label>
-
-                <div class="form-select">
-                  <a-range-picker
-                    :placeholder="['YYYY/MM', 'YYYY/MM']"
-                    format="YYYY-MM"
-                    :value="form.statisticsDateValue"
-                    :mode="mode"
-                    @panelChange="handleStatisticsDateValue2"
-                    @change="handleStatisticsDateValue"
-                  />
-                </div>
+          <!-- Accuracy -->
+          <div class="form-group">
+            <div class="form-content">
+              <label class="form-label">{{ $t('project.accuracy_name') }}</label>
+              <div class="form-checkbox">
+                <a-checkbox-group
+                  v-model:value="form.accuracyId"
+                  name="projectAccuracies"
+                  :options="dataAccuracies"
+                />
               </div>
             </div>
-            <!--./Date From -->
+          </div>
+          <!-- ./Accuracy -->
+        </a-col>
+      </a-row>
 
-            <!-- Accuracy -->
-            <div class="form-group">
-              <div class="form-content">
-                <label class="form-label">{{ $t('project.accuracy_name') }}</label>
-                <div class="form-checkbox">
-                  <a-checkbox-group
-                    v-model:value="form.accuracyId"
-                    name="projectAccuracies"
-                    :options="dataAccuracies"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- ./Accuracy -->
-          </a-col>
-        </a-row>
-
-        <div class="project__search--btn">
-          <a-button key="back" type="default" @click="clearForm" style="width: 150px"
-            >{{ $t('common.handle_cancel') }}
-          </a-button>
-          <a-button
-            key="submit"
-            type="primary"
-            html-type="submit"
-            :loading="loading"
-            style="width: 150px"
-          >
-            <template #icon>
-              <span class="btn-icon"> <icon-search /></span>
-            </template>
-            {{ $t('common.handle_ok') }}
-          </a-button>
-        </div>
-      </form>
-    </a-config-provider>
+      <div class="project__search--btn">
+        <a-button key="back" type="default" @click="clearForm" style="width: 150px"
+          >{{ $t('common.handle_cancel') }}
+        </a-button>
+        <a-button
+          key="submit"
+          type="primary"
+          html-type="submit"
+          :loading="loading"
+          style="width: 150px"
+        >
+          <template #icon>
+            <span class="btn-icon"> <icon-search /></span>
+          </template>
+          {{ $t('common.handle_ok') }}
+        </a-button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script lang="ts">
   import { defineComponent, ref, onBeforeMount } from 'vue';
-  import type { Dayjs } from 'dayjs';
   import { useForm } from 'vee-validate';
   import { useI18n } from 'vue-i18n';
 
@@ -172,8 +169,7 @@
 
     setup() {
       const { handleSubmit } = useForm();
-      const { t, locale } = useI18n();
-      const locales = ref({ en: localeEn, ja: localeJa });
+      const { t } = useI18n();
 
       const initForm = {
         groupId: [],
@@ -294,11 +290,11 @@
         ];
       });
 
-      const handleStatisticsDateValue = (val: [Dayjs, Dayjs]) => {
+      const handleStatisticsDateValue = (val: any[]) => {
         form.value.statisticsDateValue = val;
       };
 
-      const handleStatisticsDateValue2 = (val: [Dayjs, Dayjs], mode: any[]) => {
+      const handleStatisticsDateValue2 = (val: any[], mode: any[]) => {
         form.value.statisticsDateValue = val;
         mode.value = [
           mode[0] === 'date' ? 'month' : mode[0],
@@ -319,8 +315,6 @@
 
       return {
         t,
-        locales,
-        locale,
         form,
         loading,
         mode,

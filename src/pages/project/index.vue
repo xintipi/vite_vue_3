@@ -35,12 +35,12 @@
         }"
         :custom-row="customRow"
         :row-selection="rowSelection"
-        :scroll="{ y: height - 218 }"
+        :scroll="{ y: height - 520.5 }"
         size="middle"
         @change="handleChange"
       >
         <template #created_at="{ text: created_at }">
-          {{ $dayjs(created_at).format('YYYY/MM/DD') }}
+          {{ $moment(created_at).format('YYYY/MM/DD') }}
         </template>
 
         <template #divisions="{ text: divisions }">
@@ -89,44 +89,47 @@
       const state = reactive({ selectedRowKeys: [] });
       let tempRow = reactive<any[]>([]);
 
-      const columns = [
-        {
-          title: t('company.company_created_at'),
-          dataIndex: 'created_at',
-          key: 'created_at',
-          slots: { customRender: 'created_at' },
-          sorter: true,
-        },
-        {
-          title: t('company.company_name'),
-          dataIndex: 'name',
-          key: 'name',
-          sorter: true,
-        },
-        {
-          title: t('company.company_code'),
-          dataIndex: 'code',
-          key: 'code',
-          sorter: true,
-        },
-        {
-          title: t('company.country'),
-          dataIndex: 'country_name',
-          key: 'country_name',
-          sorter: true,
-        },
-        {
-          title: t('company.currency'),
-          dataIndex: 'currency_code',
-          key: 'currency_code',
-        },
-        {
-          title: t('company.classification'),
-          dataIndex: 'divisions',
-          key: 'divisions',
-          slots: { customRender: 'divisions' },
-        },
-      ];
+      const columns = computed(() => {
+        return [
+          {
+            title: t('company.company_created_at'),
+            dataIndex: 'created_at',
+            key: 'created_at',
+            slots: { customRender: 'created_at' },
+            sorter: true,
+          },
+          {
+            title: t('company.company_name'),
+            dataIndex: 'name',
+            key: 'name',
+            sorter: true,
+          },
+          {
+            title: t('company.company_code'),
+            dataIndex: 'code',
+            key: 'code',
+            sorter: true,
+          },
+          {
+            title: t('company.country'),
+            dataIndex: 'country_name',
+            key: 'country_name',
+            sorter: true,
+          },
+          {
+            title: t('company.currency'),
+            dataIndex: 'currency_code',
+            key: 'currency_code',
+          },
+          {
+            title: t('company.classification'),
+            dataIndex: 'divisions',
+            key: 'divisions',
+            slots: { customRender: 'divisions' },
+          },
+        ];
+      });
+
       const rowSelection = computed(() => {
         return {
           selectedRowKeys: state.selectedRowKeys,

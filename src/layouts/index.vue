@@ -7,7 +7,7 @@
       </app-header>
 
       <a-layout-content class="main-layout">
-        <a-config-provider :locale="locales[locale]">
+        <a-config-provider :locale="localeJa">
           <router-view />
         </a-config-provider>
       </a-layout-content>
@@ -18,10 +18,6 @@
 <script lang="ts">
   import { defineComponent, ref, onMounted } from 'vue';
   import { useI18n } from 'vue-i18n';
-
-  import dayjs from 'dayjs';
-  import 'dayjs/locale/ja';
-  dayjs.locale('ja');
 
   import { AppSidebar, AppHeader } from '@/layouts/App';
 
@@ -63,6 +59,7 @@
         locale,
         locales,
         isCollapse,
+        localeJa,
         onCollapseSideBar,
       };
     },
