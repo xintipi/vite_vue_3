@@ -1,6 +1,6 @@
 <template>
   <section class="project">
-    <project-search-form />
+    <project-search-form @filter-changed="onFilterChanged($event)" />
 
     <div class="project__options">
       <div class="project__buttons">
@@ -58,6 +58,7 @@
       <modal-action
         ref="refAction"
         v-model:visible="visibleRecord.visible"
+        @edit="editRecord"
         @delete="popupDelete = true"
         @close="closeRecord"
       />
@@ -73,22 +74,22 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, computed, onMounted } from 'vue';
+  import { defineComponent, ref, computed, onMounted, defineAsyncComponent } from 'vue';
   import { useI18n } from 'vue-i18n';
+  import { useRoute, useRouter } from 'vue-router';
 
   import { IconLineAdd, IconLineDown } from '@/components/Icons';
   import { ModalAction, ModalDelete } from '@/components/Modal';
-  import ProjectSearchForm from '@/pages/project/_components/ProjectSearchForm.vue';
 
   import { usePaginateSetting } from '@/hooks/usePaginateSetting';
-  import { convertPagination } from '@/utils';
+  import { convertPagination, deleteEmptyValue } from '@/utils';
   import CompanyJson from '@/dummy/company.json';
 
   export default defineComponent({
     name: 'Index',
 
     components: {
-      ProjectSearchForm,
+      ProjectSearchForm: defineAsyncComponent(() => import('./_components/ProjectSearchForm.vue')),
       ModalAction,
       ModalDelete,
       IconLineAdd,
@@ -97,6 +98,8 @@
 
     setup() {
       const { t } = useI18n();
+      const route = useRoute();
+      const router = useRouter();
       const { showTotal } = usePaginateSetting();
 
       const dataSource = ref<any[]>([]);
@@ -104,9 +107,11 @@
       const pagination = ref<any>({});
       const visibleRecord = ref<any>({});
       const height = ref<number>(0);
+      const params = ref<any>({ ...route.query });
       const refAction = ref();
       const refDelete = ref();
-      const popupDelete = ref(false);
+      const filter = ref<any>({});
+      const popupDelete = ref<boolean>(false);
 
       const state = ref({ selectedRowKeys: [] });
       let tempRow = ref<any[]>([]);
@@ -184,14 +189,30 @@
         }
       };
 
+      const onFilterChanged = (evt) => {
+        filter.value = { ...deleteEmptyValue(evt) };
+        console.log(filter.value);
+      };
+
+      const editRecord = () => {
+        console.log('edited!!!');
+        router.push({
+          name: 'project-edit',
+          params: {
+            id: visibleRecord.value.id,
+          },
+          query: { ...params.value, ...filter.value },
+        });
+      };
+
+      const deleteRecord = () => {
+        console.log('deleted!!!');
+      };
+
       const closeRecord = () => {
         visibleRecord.value.visible = false;
         state.value.selectedRowKeys = [];
         tempRow.value = [];
-      };
-
-      const deleteRecord = () => {
-        console.log('aaa');
       };
 
       const getInnerHeight = () => {
@@ -250,7 +271,10 @@
         refAction,
         refDelete,
         popupDelete,
+        filter,
+        onFilterChanged,
         tabOutsideTable,
+        editRecord,
         closeRecord,
         deleteRecord,
         handleChange,

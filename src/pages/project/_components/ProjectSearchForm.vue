@@ -156,7 +156,6 @@
 
 <script lang="ts">
   import { defineComponent, ref, onBeforeMount } from 'vue';
-  import { useForm } from 'vee-validate';
   import { useI18n } from 'vue-i18n';
 
   import { IconSearch } from '@/components/Icons';
@@ -167,8 +166,9 @@
 
     components: { IconSearch, CalendarOutlined },
 
-    setup() {
-      const { handleSubmit } = useForm();
+    emits: ['filter-changed'],
+
+    setup(_, { emit }) {
       const { t } = useI18n();
 
       const initForm = {
@@ -297,12 +297,12 @@
         form.value = JSON.parse(JSON.stringify(initForm));
       };
 
-      const onSubmit = handleSubmit(() => {
+      const onSubmit = () => {
         let data = { ...form.value };
-        console.log(data);
 
-        loading.value = true;
-      });
+        emit('filter-changed', data);
+        // loading.value = true;
+      };
 
       return {
         t,

@@ -1,12 +1,17 @@
 <template>
-  <div class="create-project">Create Project</div>
+  <div class="project__create">
+    <project-form />
+  </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, defineAsyncComponent } from 'vue';
 
   export default defineComponent({
     name: 'CreateProject',
+    components: {
+      ProjectForm: defineAsyncComponent(() => import('../_components/ProjectForm.vue')),
+    },
   });
 </script>
 
