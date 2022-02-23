@@ -11,21 +11,13 @@ import {
   Modal,
   Select,
   Form,
-  Input,
-  InputNumber,
   ConfigProvider,
   Breadcrumb,
   Popover,
   Menu,
   Radio,
-  Tag,
-  Tabs,
   Tooltip,
   Spin,
-  Dropdown,
-  Upload,
-  Space,
-  AutoComplete,
   Col,
   Row,
 } from 'ant-design-vue';
@@ -43,22 +35,14 @@ const registerAntdesign = (app: App<Element>) => {
     .use(Collapse)
     .use(Modal)
     .use(Form)
-    .use(Input)
-    .use(InputNumber)
     .use(ConfigProvider)
     .use(Breadcrumb)
     .use(Popover)
     .use(Menu)
     .use(Radio)
     .use(Select)
-    .use(Tag)
-    .use(Tabs)
     .use(Tooltip)
     .use(Spin)
-    .use(Dropdown)
-    .use(Upload)
-    .use(Space)
-    .use(AutoComplete)
     .use(Row)
     .use(Col);
 };

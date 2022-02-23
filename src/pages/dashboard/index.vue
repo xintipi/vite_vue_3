@@ -5,14 +5,16 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, defineAsyncComponent } from 'vue';
+  import { defineComponent } from 'vue';
   import { useI18n } from 'vue-i18n';
+
+  import HelloWorld from '@/components/HelloWorld.vue';
 
   export default defineComponent({
     name: 'Index',
 
     components: {
-      HelloWorld: defineAsyncComponent(() => import('@/components/HelloWorld.vue')),
+      HelloWorld,
     },
 
     setup() {

@@ -74,12 +74,13 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, computed, onMounted, defineAsyncComponent } from 'vue';
+  import { defineComponent, ref, computed, onMounted } from 'vue';
   import { useI18n } from 'vue-i18n';
   import { useRoute, useRouter } from 'vue-router';
 
   import { IconLineAdd, IconLineDown } from '@/components/Icons';
   import { ModalAction, ModalDelete } from '@/components/Modal';
+  import ProjectSearchForm from '@/pages/project/_components/ProjectSearchForm.vue';
 
   import { usePaginateSetting } from '@/hooks/usePaginateSetting';
   import { convertPagination, deleteEmptyValue } from '@/utils';
@@ -89,7 +90,7 @@
     name: 'Index',
 
     components: {
-      ProjectSearchForm: defineAsyncComponent(() => import('./_components/ProjectSearchForm.vue')),
+      ProjectSearchForm,
       ModalAction,
       ModalDelete,
       IconLineAdd,
