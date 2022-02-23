@@ -7,7 +7,7 @@
         <a-tooltip color="#fff" :title="$t('project.export_csv')">
           <a-button type="link" @click="exportCSV">
             <template #icon>
-              <span style="height: 28px" class="btn-icon"><icon-line-down /></span>
+              <span class="btn-icon"><icon-line-down /></span>
             </template>
           </a-button>
         </a-tooltip>
@@ -24,6 +24,7 @@
     <div class="project__table">
       <a-table
         class="list-table"
+        v-click-outside="tabOutsideTable"
         :columns="columns"
         :data-source="dataSource"
         :row-key="(record) => record.id"
@@ -53,15 +54,31 @@
           }}
         </template>
       </a-table>
+
+      <modal-action
+        ref="refAction"
+        v-model:visible="visibleRecord.visible"
+        @delete="popupDelete = true"
+        @close="closeRecord"
+      />
+
+      <modal-delete
+        class="ref__delete"
+        v-model:visible="popupDelete"
+        :name="visibleRecord.name"
+        @delete="deleteRecord"
+      />
     </div>
   </section>
 </template>
 
 <script lang="ts">
-  import { defineComponent, defineAsyncComponent, ref, reactive, computed, onMounted } from 'vue';
+  import { defineComponent, ref, computed, onMounted } from 'vue';
   import { useI18n } from 'vue-i18n';
 
   import { IconLineAdd, IconLineDown } from '@/components/Icons';
+  import { ModalAction, ModalDelete } from '@/components/Modal';
+  import ProjectSearchForm from '@/pages/project/_components/ProjectSearchForm.vue';
 
   import { usePaginateSetting } from '@/hooks/usePaginateSetting';
   import { convertPagination } from '@/utils';
@@ -71,7 +88,9 @@
     name: 'Index',
 
     components: {
-      ProjectSearchForm: defineAsyncComponent(() => import('./_components/ProjectSearchForm.vue')),
+      ProjectSearchForm,
+      ModalAction,
+      ModalDelete,
       IconLineAdd,
       IconLineDown,
     },
@@ -83,11 +102,14 @@
       const dataSource = ref<any[]>([]);
       const loading = ref<boolean>(false);
       const pagination = ref<any>({});
-      const recordVisible = ref<any>({});
+      const visibleRecord = ref<any>({});
       const height = ref<number>(0);
+      const refAction = ref();
+      const refDelete = ref();
+      const popupDelete = ref(false);
 
-      const state = reactive({ selectedRowKeys: [] });
-      let tempRow = reactive<any[]>([]);
+      const state = ref({ selectedRowKeys: [] });
+      let tempRow = ref<any[]>([]);
 
       const columns = computed(() => {
         return [
@@ -132,7 +154,7 @@
 
       const rowSelection = computed(() => {
         return {
-          selectedRowKeys: state.selectedRowKeys,
+          selectedRowKeys: state.value.selectedRowKeys,
           columnWidth: 0,
           type: 'radio',
         };
@@ -149,6 +171,29 @@
         window.addEventListener('resize', getInnerHeight);
       });
 
+      const tabOutsideTable = (event) => {
+        const refModalDelete = document.querySelector('.ref__delete');
+        const lists = [refAction.value?.$el, refModalDelete].filter(Boolean);
+
+        if (lists.length === 0) return;
+
+        const isOutside = lists.every((el) => !(el === event.target || el.contains(event.target)));
+
+        if (isOutside) {
+          closeRecord();
+        }
+      };
+
+      const closeRecord = () => {
+        visibleRecord.value.visible = false;
+        state.value.selectedRowKeys = [];
+        tempRow.value = [];
+      };
+
+      const deleteRecord = () => {
+        console.log('aaa');
+      };
+
       const getInnerHeight = () => {
         height.value = window.innerHeight;
       };
@@ -162,20 +207,20 @@
       };
 
       const selectRow = (record) => {
-        recordVisible.value = { ...record };
-        if (tempRow.length && tempRow[0] === record.id) {
-          state.selectedRowKeys = [];
-          tempRow = [];
-          recordVisible.value.visible = false;
+        visibleRecord.value = { ...record };
+        if (tempRow.value.length && tempRow.value[0] === record.id) {
+          state.value.selectedRowKeys = [];
+          tempRow.value = [];
+          visibleRecord.value.visible = false;
         } else {
-          state.selectedRowKeys = [record.id] as any;
-          tempRow = [record.id];
-          recordVisible.value.visible = true;
+          state.value.selectedRowKeys = [record.id] as any;
+          tempRow.value = [record.id];
+          visibleRecord.value.visible = true;
         }
       };
 
       const handleChange = async (_pagination, _filters, sorter) => {
-        recordVisible.value.visible = false;
+        visibleRecord.value.visible = false;
 
         switch (sorter.order) {
           case 'ascend':
@@ -201,6 +246,13 @@
         columns,
         rowSelection,
         height,
+        visibleRecord,
+        refAction,
+        refDelete,
+        popupDelete,
+        tabOutsideTable,
+        closeRecord,
+        deleteRecord,
         handleChange,
         showTotal,
         customRow,
@@ -233,6 +285,10 @@
     &__buttons {
       display: flex;
       align-content: center;
+
+      .ant-btn-icon-only {
+        display: inherit;
+      }
 
       button + button {
         margin-left: 16px;

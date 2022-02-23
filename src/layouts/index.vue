@@ -1,6 +1,7 @@
 <template>
   <a-layout class="main">
     <app-sidebar @on-collapse-side-bar="onCollapseSideBar($event)" />
+
     <a-layout class="main__content">
       <app-header :class="isCollapse ? 'is-collapse' : ''">
         <slot name="header"></slot>
@@ -16,9 +17,8 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, onMounted } from 'vue';
+  import { defineComponent, ref, onBeforeMount } from 'vue';
   import { useI18n } from 'vue-i18n';
-
   import { AppSidebar, AppHeader } from '@/layouts/App';
 
   import localeEn from 'ant-design-vue/es/locale/en_US';
@@ -27,13 +27,12 @@
   export default defineComponent({
     name: 'IndexLayout',
 
-    components: {
-      AppSidebar,
-      AppHeader,
-    },
+    components: { AppSidebar, AppHeader },
 
     setup() {
       const { locale } = useI18n();
+
+      const visible = ref(true);
 
       const locales = ref({ en: localeEn, ja: localeJa });
       const isCollapse = ref<boolean>();
@@ -42,7 +41,7 @@
         isCollapse.value = isCollapseEmit;
       };
 
-      onMounted(() => {
+      onBeforeMount(() => {
         locales.value = {
           en: {
             ...locales.value.en,
@@ -56,6 +55,7 @@
       });
 
       return {
+        visible,
         locale,
         locales,
         isCollapse,

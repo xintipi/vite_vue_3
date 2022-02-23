@@ -1,12 +1,14 @@
-import common from '@/locale/en/_el/common';
-import dashboard from '@/locale/en/_el/dashboard';
-import project from '@/locale/en/_el/project';
-import breadcrumb from '@/locale/en/_el/breadcrumb';
-import login from '@/locale/en/_el/login';
-import user from '@/locale/en/_el/user';
-import sidebar from '@/locale/en/_el/sidebar';
-import routes from '@/locale/en/_el/routes';
-import company from '@/locale/en/_el/company';
+import common from './common';
+import dashboard from './dashboard';
+import project from './project';
+import breadcrumb from './breadcrumb';
+import login from './login';
+import user from './user';
+import sidebar from './sidebar';
+import routes from './routes';
+import company from './company';
+import action from './action';
+import modal from './modal';
 
 export default {
   common,
@@ -18,4 +20,6 @@ export default {
   sidebar,
   routes,
   company,
+  action,
+  modal,
 };

@@ -104,10 +104,13 @@
                   :placeholder="['YYYY/MM', 'YYYY/MM']"
                   format="YYYY-MM"
                   :value="form.statisticsDateValue"
-                  :mode="mode"
-                  @panelChange="handleStatisticsDateValue2"
-                  @change="handleStatisticsDateValue"
-                />
+                  :mode="['month', 'month']"
+                  @panelChange="handleStatisticsDateValue"
+                >
+                  <template #suffixIcon>
+                    <calendar-outlined />
+                  </template>
+                </a-range-picker>
               </div>
             </div>
           </div>
@@ -159,9 +162,6 @@
   import { IconSearch } from '@/components/Icons';
   import { CalendarOutlined } from '@ant-design/icons-vue';
 
-  import localeJa from 'ant-design-vue/es/locale/ja_JP';
-  import localeEn from 'ant-design-vue/es/locale/en_US';
-
   export default defineComponent({
     name: 'ProjectSearchForm',
 
@@ -181,7 +181,6 @@
       };
 
       const form = ref(JSON.parse(JSON.stringify(initForm)));
-      const mode = ref<any>(['month', 'month']);
 
       const loading = ref<boolean>(false);
 
@@ -294,14 +293,6 @@
         form.value.statisticsDateValue = val;
       };
 
-      const handleStatisticsDateValue2 = (val: any[], mode: any[]) => {
-        form.value.statisticsDateValue = val;
-        mode.value = [
-          mode[0] === 'date' ? 'month' : mode[0],
-          mode[1] === 'date' ? 'month' : mode[1],
-        ];
-      };
-
       const clearForm = () => {
         form.value = JSON.parse(JSON.stringify(initForm));
       };
@@ -317,13 +308,11 @@
         t,
         form,
         loading,
-        mode,
         dataGroups,
         dataAccounts,
         dataStatuses,
         dataAccuracies,
         handleStatisticsDateValue,
-        handleStatisticsDateValue2,
         clearForm,
         onSubmit,
       };
