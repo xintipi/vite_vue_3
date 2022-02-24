@@ -8,7 +8,7 @@
       </app-header>
 
       <a-layout-content class="main-layout">
-        <a-config-provider :locale="localeJa">
+        <a-config-provider :locale="locales[locale]">
           <router-view />
         </a-config-provider>
       </a-layout-content>
