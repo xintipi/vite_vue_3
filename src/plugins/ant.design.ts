@@ -2,6 +2,7 @@ import { App } from '@vue/runtime-core';
 import {
   Typography,
   Button,
+  Input,
   DatePicker,
   Checkbox,
   Pagination,
@@ -27,6 +28,7 @@ const registerAntdesign = (app: App<Element>) => {
   app
     .use(Typography)
     .use(Button)
+    .use(Input)
     .use(DatePicker)
     .use(Checkbox)
     .use(Pagination)
