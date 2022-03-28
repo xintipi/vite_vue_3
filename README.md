@@ -17,17 +17,9 @@ Vue Admin is a free and open source middle and back-end template. Using the late
 
 ## Install and use
 
-- Get the project code
-
-```bash
-git clone https://github.com/xintipi/vite_vue_3.git
-```
-
 - Installation dependencies
 
 ```bash
-cd vite_vue_3
-
 npm install
 ```
 
