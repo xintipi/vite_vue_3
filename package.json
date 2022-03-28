@@ -6,10 +6,10 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "dev": "vite --open",
-    "build": "vite build",
+    "dev": "vite",
     "build:staging": "vite build --mode staging",
-    "preview": "npm run build && vite preview --port 5000 --open",
+    "build:production": "vite build",
+    "preview": "vite preview --port 5000",
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,ts,json,css,scss,vue,html,md}\"",
     "test:unit": "jest",

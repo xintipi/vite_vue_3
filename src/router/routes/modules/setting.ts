@@ -1,7 +1,10 @@
 import type { AppRouteModule } from '@/router/types';
 import { LAYOUT, BASE } from '@/router/constant';
 import i18n from '@/locale';
-import { defineAsyncComponent } from 'vue';
+
+import CompanyPage from '@/pages/setting/company/index.vue';
+import CreateCompanyPage from '@/pages/setting/company/create/index.vue';
+import EditCompanyPage from '@/pages/setting/company/edit/index.vue';
 
 const { t } = i18n.global;
 
@@ -18,19 +21,19 @@ const setting: AppRouteModule = {
         {
           path: '',
           name: 'company',
-          component: defineAsyncComponent(() => import('@/pages/setting/company/index.vue')),
+          component: CompanyPage,
           meta: { title: t('routes.company') },
         },
         {
           path: 'create',
           name: 'company-create',
-          component: defineAsyncComponent(() => import('@/pages/setting/company/create/index.vue')),
+          component: CreateCompanyPage,
           meta: { title: t('routes.company_create') },
         },
         {
           path: ':id/edit',
           name: 'company-edit',
-          component: defineAsyncComponent(() => import('@/pages/setting/company/edit/index.vue')),
+          component: EditCompanyPage,
           meta: { title: t('routes.company_edit') },
         },
       ],

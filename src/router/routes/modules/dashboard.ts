@@ -1,7 +1,7 @@
 import type { AppRouteModule } from '@/router/types';
 import { LAYOUT } from '@/router/constant';
 import i18n from '@/locale';
-import { defineAsyncComponent } from 'vue';
+import DashboardPage from '@/pages/dashboard/index.vue';
 
 const { t } = i18n.global;
 
@@ -12,7 +12,7 @@ const dashboard: AppRouteModule = {
     {
       path: '',
       name: 'dashboard',
-      component: defineAsyncComponent(() => import('@/pages/dashboard/index.vue')),
+      component: DashboardPage,
       meta: { title: t('routes.dashboard') },
     },
   ],

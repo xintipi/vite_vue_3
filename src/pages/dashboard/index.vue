@@ -5,8 +5,9 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, onMounted } from 'vue';
   import { useI18n } from 'vue-i18n';
+  import Admin from '@/models/Admin';
 
   import HelloWorld from '@/components/HelloWorld.vue';
 
@@ -19,6 +20,15 @@
 
     setup() {
       const { t } = useI18n();
+
+      onMounted(async () => {
+        const { data } = await Admin.me({
+          query: {
+            include: 'role,permissions',
+          },
+        });
+        console.log(data);
+      });
       return {
         t,
       };

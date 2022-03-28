@@ -1,7 +1,9 @@
 import type { AppRouteModule } from '@/router/types';
 import { LAYOUT } from '@/router/constant';
 import i18n from '@/locale';
-import { defineAsyncComponent } from 'vue';
+import ProjectPage from '@/pages/project/index.vue';
+import CreateProjectPage from '@/pages/project/create/index.vue';
+import EditProjectPage from '@/pages/project/edit/index.vue';
 
 const { t } = i18n.global;
 
@@ -12,19 +14,19 @@ const project: AppRouteModule = {
     {
       path: '',
       name: 'project',
-      component: defineAsyncComponent(() => import('@/pages/project/index.vue')),
+      component: ProjectPage,
       meta: { title: t('routes.project') },
     },
     {
       path: 'create',
       name: 'project-create',
-      component: defineAsyncComponent(() => import('@/pages/project/create/index.vue')),
+      component: CreateProjectPage,
       meta: { title: t('routes.create_project') },
     },
     {
       path: ':id/edit',
       name: 'project-edit',
-      component: defineAsyncComponent(() => import('@/pages/project/edit/index.vue')),
+      component: EditProjectPage,
       meta: { title: t('routes.edit_project') },
     },
   ],
