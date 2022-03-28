@@ -6,6 +6,10 @@
       </div>
       <div class="header__content--right">
         <profile />
+        <div class="dxe-base">
+          <p class="user-name u-mb-0">有限会社</p>
+          <p class="email u-mb-0">sysadmin@gmail.com</p>
+        </div>
       </div>
     </div>
   </a-layout-header>
@@ -41,7 +45,7 @@
     box-shadow: 0 1px 0 #f0f0f0;
     height: 56px;
     line-height: 28px;
-    padding: 0 32px;
+    padding: 0 20px;
     transition: transform 0.3s ease-in-out, left 0.3s ease-in-out;
 
     &__content {
@@ -54,6 +58,23 @@
 
       &--right {
         @include flexbox(center, center);
+
+        .dxe-base {
+          height: 32px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+
+          .user-name {
+            font-size: 13px;
+            line-height: 0;
+          }
+
+          .email {
+            font-size: 11px;
+            line-height: 0;
+          }
+        }
       }
     }
 

@@ -56,21 +56,6 @@
             </div>
           </div>
           <!-- ./Accounts -->
-
-          <!-- Status -->
-          <div class="form-group">
-            <div class="form-content">
-              <label class="form-label">{{ $t('project.status') }}</label>
-              <div class="form-checkbox">
-                <a-checkbox-group
-                  v-model:value="form.statusId"
-                  name="projectStatuses"
-                  :options="dataStatuses"
-                />
-              </div>
-            </div>
-          </div>
-          <!-- ./Status -->
         </a-col>
 
         <a-col flex="5">
@@ -115,21 +100,6 @@
             </div>
           </div>
           <!--./Date From -->
-
-          <!-- Accuracy -->
-          <div class="form-group">
-            <div class="form-content">
-              <label class="form-label">{{ $t('project.accuracy_name') }}</label>
-              <div class="form-checkbox">
-                <a-checkbox-group
-                  v-model:value="form.accuracyId"
-                  name="projectAccuracies"
-                  :options="dataAccuracies"
-                />
-              </div>
-            </div>
-          </div>
-          <!-- ./Accuracy -->
         </a-col>
       </a-row>
 

@@ -3,25 +3,32 @@
     v-model:visible="visible"
     trigger="click"
     placement="bottomRight"
-    overlay-class-name="k-profile"
+    overlay-class-name="t-profile"
   >
-    <a-button :class="['k-profile__btn-user', visible && 'is-active']">
+    <a-button :class="['t-profile__btn-user', visible && 'is-active']">
       <icon-user />
     </a-button>
 
     <!-- Dropdown menu -->
     <template #content>
       <a-menu mode="inline">
+        <a-menu-item class="menu__item" @click="handleShowSetting">
+          <div class="menu__link">
+            <setting-outlined />
+            <span class="menu__link--text">{{ $t('user.setting') }}</span>
+          </div>
+        </a-menu-item>
+
         <a-menu-item class="menu__item" @click="handleShowProfile">
           <div class="menu__link">
-            <icon-user-setting />
-            <span class="menu__link--text">{{ $t('user.personal_settings') }}</span>
+            <user-outlined />
+            <span class="menu__link--text">{{ $t('user.user_profile') }}</span>
           </div>
         </a-menu-item>
 
         <a-menu-item class="menu__item" @click="handleLogout">
           <div class="menu__link">
-            <icon-logout />
+            <logout-outlined />
             <span class="menu__link--text">{{ $t('user.logout') }}</span>
           </div>
         </a-menu-item>
@@ -34,7 +41,8 @@
   import { defineComponent, ref } from 'vue';
   import { useRouter } from 'vue-router';
 
-  import { IconUser, IconUserSetting, IconLogout } from '@/components/Icons';
+  import { IconUser } from '@/components/Icons';
+  import { LogoutOutlined, UserOutlined, SettingOutlined } from '@ant-design/icons-vue';
   import { useAuthStore } from '@/store/auth';
 
   export default defineComponent({
@@ -42,8 +50,9 @@
 
     components: {
       IconUser,
-      IconUserSetting,
-      IconLogout,
+      LogoutOutlined,
+      UserOutlined,
+      SettingOutlined,
     },
 
     setup() {
@@ -51,12 +60,14 @@
       const router = useRouter();
       const auth = useAuthStore();
 
-      const handleShowProfile = async () => {
-        try {
-          visible.value = false;
-        } catch (e) {
-          console.log(e);
-        }
+      const handleShowSetting = () => {
+        console.log('setting');
+        visible.value = false;
+      };
+
+      const handleShowProfile = () => {
+        console.log('user profile');
+        visible.value = false;
       };
 
       const handleLogout = () => {
@@ -67,6 +78,7 @@
 
       return {
         visible,
+        handleShowSetting,
         handleShowProfile,
         handleLogout,
       };
@@ -86,7 +98,7 @@
     height: 50px;
   }
 
-  .k-profile {
+  .t-profile {
     svg {
       color: $color-grey-15;
       background-color: $color-grey-100;
@@ -125,6 +137,8 @@
           color: rgba(0, 0, 0, 0.85);
           display: flex;
           align-items: center;
+          margin-left: 0;
+          font-weight: 500;
         }
       }
     }
@@ -203,7 +217,7 @@
     }
   }
 
-  .k-profile.ant-popover-placement-bottomRight {
+  .t-profile.ant-popover-placement-bottomRight {
     .ant-popover-content {
       margin-top: -5px;
     }

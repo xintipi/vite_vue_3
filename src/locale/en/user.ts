@@ -1,4 +1,5 @@
 export default {
-  personal_settings: 'Personal Settings',
+  setting: 'Setting',
+  user_profile: 'User profile',
   logout: 'Logout',
 };

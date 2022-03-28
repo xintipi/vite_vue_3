@@ -3,7 +3,7 @@
     <project-search-form @filter-changed="onFilterChanged($event)" />
 
     <div class="project__options">
-      <div class="project__buttons">
+      <div class="project__buttons u-mb-12">
         <a-tooltip color="#fff" :title="$t('project.export_csv')">
           <a-button type="link" @click="exportCSV">
             <template #icon>
@@ -19,9 +19,22 @@
           {{ $t('project.add_project_link') }}
         </a-button>
       </div>
+
+      <a-pagination
+        :current="pagination.current"
+        :total="pagination.total"
+        :show-total="(total, range) => showTotal(total, range)"
+        :page-size="pagination.pageSize"
+        size="small"
+        @change="onChangePage"
+      />
     </div>
 
     <div class="project__table">
+      <a-tabs default-active-key="1" :animated="false">
+        <a-tab-pane v-for="item in groupList" :key="item.id" :tab="item.name" />
+      </a-tabs>
+
       <a-table
         class="list-table"
         v-click-outside="tabOutsideTable"
@@ -29,14 +42,11 @@
         :data-source="dataSource"
         :row-key="(record) => record.id"
         :loading="loading"
+        :pagination="false"
         :show-sorter-tooltip="false"
-        :pagination="{
-          ...pagination,
-          showTotal: showTotal,
-        }"
         :custom-row="customRow"
+        :scroll="{ y: height - 496.5 }"
         :row-selection="rowSelection"
-        :scroll="{ y: height - 520.5 }"
         size="middle"
         @change="handleChange"
       >
@@ -157,6 +167,18 @@
           },
         ];
       });
+      const groupList = computed(() => {
+        return [
+          {
+            id: 1,
+            name: `${t('project.time_card')}`,
+          },
+          {
+            id: 2,
+            name: `${t('project.paid_list')}`,
+          },
+        ];
+      });
 
       const rowSelection = computed(() => {
         return {
@@ -193,6 +215,11 @@
       const onFilterChanged = (evt) => {
         filter.value = { ...deleteEmptyValue(evt) };
         console.log(filter.value);
+      };
+
+      const onChangePage = (page) => {
+        console.log(page);
+        pagination.value = { ...pagination.value, current: page };
       };
 
       const editRecord = () => {
@@ -266,6 +293,7 @@
         pagination,
         dataSource,
         columns,
+        groupList,
         rowSelection,
         height,
         visibleRecord,
@@ -273,6 +301,7 @@
         refDelete,
         popupDelete,
         filter,
+        onChangePage,
         onFilterChanged,
         tabOutsideTable,
         editRecord,

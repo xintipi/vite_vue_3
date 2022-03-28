@@ -66,7 +66,7 @@
     .ant-breadcrumb-link,
     .ant-breadcrumb-separator {
       color: $color-grey-75;
-      font-size: 20px;
+      font-size: 17px;
       line-height: 28px;
       font-weight: 400;
     }

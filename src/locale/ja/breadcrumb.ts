@@ -1,5 +1,6 @@
 export default {
-  dashboard: 'ダッシュボード',
+  dashboard: 'ホーム',
+  attendance: '出勤管理',
   company: '登録企業',
   category: '登録大分類',
   project: 'プロジェクト一覧',

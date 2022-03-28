@@ -10,4 +10,6 @@ export default {
   status: 'Status',
   accuracy_name: 'Accuracy',
   release_date: 'Release Date',
+  time_card: 'Time Card',
+  paid_list: 'Paid List',
 };

@@ -4,7 +4,7 @@
       <form class="card" @submit="onSubmit">
         <div class="card-body">
           <div class="text-center login__logo">
-            <img alt="logo" :src="logo" />
+            <img alt="logo" src="https://demo3.timex.sonasu.com/Content/Images/Logo/logo.png" />
           </div>
           <!-- email -->
           <div class="form-group">

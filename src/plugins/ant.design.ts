@@ -7,6 +7,7 @@ import {
   Checkbox,
   Pagination,
   Table,
+  Tabs,
   Layout,
   Collapse,
   Modal,
@@ -33,6 +34,7 @@ const registerAntdesign = (app: App<Element>) => {
     .use(Checkbox)
     .use(Pagination)
     .use(Table)
+    .use(Tabs)
     .use(Layout)
     .use(Collapse)
     .use(Modal)

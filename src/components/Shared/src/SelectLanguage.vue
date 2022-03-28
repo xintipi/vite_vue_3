@@ -1,8 +1,4 @@
 <template>
-  <img alt="Vue logo" :src="logo" />
-
-  <h1>{{ msg }}</h1>
-
   <a-select v-model:value="locale" style="width: 115px" @change="handleChange">
     <a-select-option v-for="(item, i) in options" :key="i" :value="item.locale">
       {{ item.value }}
@@ -17,7 +13,7 @@
   import logo from '@/assets/logo.png';
 
   export default defineComponent({
-    name: 'HelloWorld',
+    name: 'SelectLanguage',
 
     props: {
       msg: {

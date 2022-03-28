@@ -1,5 +1,6 @@
 export default {
-  dashboard: 'Dashboard',
+  dashboard: 'Home',
+  attendance: 'Attendance',
   company: 'Company',
   category: 'Category',
   project: 'Project',

@@ -10,4 +10,6 @@ export default {
   status: 'ステータス',
   accuracy_name: '受注確度',
   release_date: 'リリース日',
+  time_card: 'タイムカード',
+  paid_list: '有給一覧',
 };

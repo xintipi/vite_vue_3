@@ -78,6 +78,7 @@
     SidebarArrowDown,
     SidebarClose,
     SidebarDashboard,
+    SidebarAttendance,
     SidebarProject,
     SidebarSetting,
   } from '@/components/Sidebar';
@@ -89,6 +90,7 @@
       SidebarArrowDown,
       SidebarClose,
       SidebarDashboard,
+      SidebarAttendance,
       SidebarProject,
       SidebarSetting,
     },
@@ -107,6 +109,17 @@
             name: 'project',
             label: t('sidebar.project'),
             icon: 'SidebarProject',
+          },
+          {
+            name: 'attendance',
+            label: t('sidebar.attendance'),
+            icon: 'SidebarAttendance',
+            children: [
+              {
+                name: 'work-data',
+                label: t('sidebar.work_data'),
+              },
+            ],
           },
           {
             name: 'setting',

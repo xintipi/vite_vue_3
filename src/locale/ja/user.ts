@@ -1,4 +1,5 @@
 export default {
-  personal_settings: '個人設定',
-  logout: 'ログアウト',
+  setting: '設定',
+  user_profile: 'ユーザープロフィール',
+  logout: 'サインアウト',
 };
